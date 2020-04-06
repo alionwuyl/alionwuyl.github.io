@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Alion">
 <meta property="og:description" content="这篇文章主要记录Unicode字符集及编码方式和Java中的char类型的联系，这里仅仅是一个大概，更加详细的内容请自行搜索。 Unicode字符集及编码Unicode字符集的由来Unicode编码是一个全球统一的通用字符集，它为每个字符提供一个唯一的编号，旨在支持世界各地的交流。最开始的时候是通过两个字节，即16位bit来容纳所有的字符的，但在加入大量的汉语、日语等表意文字之后，16位的Unic">
 <meta property="article:published_time" content="2020-04-06T04:51:09.589Z">
-<meta property="article:modified_time" content="2020-04-06T05:31:32.420Z">
+<meta property="article:modified_time" content="2020-04-06T05:45:54.064Z">
 <meta property="article:author" content="Alion">
 <meta name="twitter:card" content="summary">
 
@@ -301,7 +301,7 @@
         <p>这篇文章主要记录Unicode字符集及编码方式和Java中的char类型的联系，这里仅仅是一个大概，更加详细的内容请自行搜索。</p>
 <h2 id="Unicode字符集及编码"><a href="#Unicode字符集及编码" class="headerlink" title="Unicode字符集及编码"></a>Unicode字符集及编码</h2><h3 id="Unicode字符集的由来"><a href="#Unicode字符集的由来" class="headerlink" title="Unicode字符集的由来"></a>Unicode字符集的由来</h3><p>Unicode编码是一个全球统一的通用字符集，它为每个字符提供一个唯一的编号，旨在支持世界各地的交流。<br>最开始的时候是通过两个字节，即16位bit来容纳所有的字符的，但在加入大量的汉语、日语等表意文字之后，16位的Unicode不足以满足描述所有Unicode字符的需要了。<br>Unicode通过U+紧跟着十六进制数表示，现在的Unicode编码分为17个平面，每个平面有 216=65536 个码点，<strong>码点是指与一个编码表中某个字符对应的代码值，比如U+0041就是字母A的代码值</strong>，第一个代码平面称为基本多语言平面，收集了使用最广泛的字符，代码从U+0000到U+FFFF，剩余的16个平面的码点从U+10000到U+10FFFF。</p>
 <h3 id="Unicode编码"><a href="#Unicode编码" class="headerlink" title="Unicode编码"></a>Unicode编码</h3><h4 id="这里仅仅介绍UTF-8和UTF-16"><a href="#这里仅仅介绍UTF-8和UTF-16" class="headerlink" title="这里仅仅介绍UTF-8和UTF-16"></a>这里仅仅介绍UTF-8和UTF-16</h4><p>UTF-16是最早的Unicode字符集编码方式，通过不同长度的编码来表示所有Unicode码点。在UTF-16中，这16位字符称为一个代码单元，UTF-16通过不同数量的代码单元来代表一个码点，比如码点为U+1D546的字符，用UTF-16编码为两个代码单元U+D835和U+DD46。 </p>
-<h4 id="上面的分割是怎么实现的呢？"><a href="#上面的分割是怎么实现的呢？" class="headerlink" title="上面的分割是怎么实现的呢？"></a>上面的分割是怎么实现的呢？</h4><p>这是因为在基本多平面中(即U+0000到U+FFFF中)，有一部分代码单元是用来作为辅助字符的，比如U+D800<del>U+DBFF表明是第一个代码单元，U+DC00</del>U+DFFF用于第二个代码单元。这样我们就可以从中迅速的知道一个代码单元是一个字符的编码，还是一个辅助字符的第一或第二部分。  </p>
+<h4 id="上面的分割是怎么实现的呢？"><a href="#上面的分割是怎么实现的呢？" class="headerlink" title="上面的分割是怎么实现的呢？"></a>上面的分割是怎么实现的呢？</h4><p>这是因为在基本多平面中(即U+0000到U+FFFF中)，有一部分代码单元是用来作为辅助字符的，比如U+D800~U+DBFF表明是第一个代码单元，U+DC00~U+DFFF用于第二个代码单元。这样我们就可以从中迅速的知道一个代码单元是一个字符的编码，还是一个辅助字符的第一或第二部分。  </p>
 <p>UTF-8是目前应用最广泛的Unicode编码方式。UTF-8也是一种变长的编码方式，一般通过1-4个字节序来表示Unicode字符。</p>
 <h3 id="JAVA中的Char"><a href="#JAVA中的Char" class="headerlink" title="JAVA中的Char"></a>JAVA中的Char</h3><p>在Java中，char类型描述了UTF-16编码中的一个代码单元。如果没有必要，我们尽量不要使用char类型。</p>
 
