@@ -79,12 +79,14 @@
 
 
 
-<meta name="description" content="学生">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Alion">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="这篇文章主要记录Unicode字符集及编码方式和Java中的char类型的联系，这里仅仅是一个大概，更加详细的内容请自行搜索。 Unicode字符集及编码Unicode字符集的由来Unicode编码是一个全球统一的通用字符集，它为每个字符提供一个唯一的编号，旨在支持世界各地的交流。最开始的时候是通过两个字节，即16位bit来容纳所有的字符的，但在加入大量的汉语、日语等表意文字之后，16位的Unic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java中的char和Unicode字符集及编码的联系">
+<meta property="og:url" content="http://yoursite.com/2020/04/06/Unicode%E5%92%8CJAVA%E7%9A%84char/index.html">
 <meta property="og:site_name" content="Alion">
-<meta property="og:description" content="学生">
+<meta property="og:description" content="这篇文章主要记录Unicode字符集及编码方式和Java中的char类型的联系，这里仅仅是一个大概，更加详细的内容请自行搜索。 Unicode字符集及编码Unicode字符集的由来Unicode编码是一个全球统一的通用字符集，它为每个字符提供一个唯一的编号，旨在支持世界各地的交流。最开始的时候是通过两个字节，即16位bit来容纳所有的字符的，但在加入大量的汉语、日语等表意文字之后，16位的Unic">
+<meta property="article:published_time" content="2020-04-06T04:51:09.589Z">
+<meta property="article:modified_time" content="2020-04-06T05:31:32.420Z">
 <meta property="article:author" content="Alion">
 <meta name="twitter:card" content="summary">
 
@@ -116,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/04/06/Unicode和JAVA的char/"/>
 
 
 
 
 
-  <title>Alion</title>
+  <title>Java中的char和Unicode字符集及编码的联系 | Alion</title>
   
 
 
@@ -141,8 +143,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -215,9 +216,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -247,9 +248,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/06/Unicode%E5%92%8CJAVA%E7%9A%84char/" itemprop="url">Java中的char和Unicode字符集及编码的联系</a></h1>
+          <h1 class="post-title" itemprop="name headline">Java中的char和Unicode字符集及编码的联系</h1>
         
 
         <div class="post-meta">
@@ -299,17 +298,13 @@
       
 
       
-        
-          
-            <p>这篇文章主要记录Unicode字符集及编码方式和Java中的char类型的联系，这里仅仅是一个大概，更加详细的内容请自行搜索。</p>
+        <p>这篇文章主要记录Unicode字符集及编码方式和Java中的char类型的联系，这里仅仅是一个大概，更加详细的内容请自行搜索。</p>
 <h2 id="Unicode字符集及编码"><a href="#Unicode字符集及编码" class="headerlink" title="Unicode字符集及编码"></a>Unicode字符集及编码</h2><h3 id="Unicode字符集的由来"><a href="#Unicode字符集的由来" class="headerlink" title="Unicode字符集的由来"></a>Unicode字符集的由来</h3><p>Unicode编码是一个全球统一的通用字符集，它为每个字符提供一个唯一的编号，旨在支持世界各地的交流。<br>最开始的时候是通过两个字节，即16位bit来容纳所有的字符的，但在加入大量的汉语、日语等表意文字之后，16位的Unicode不足以满足描述所有Unicode字符的需要了。<br>Unicode通过U+紧跟着十六进制数表示，现在的Unicode编码分为17个平面，每个平面有 216=65536 个码点，<strong>码点是指与一个编码表中某个字符对应的代码值，比如U+0041就是字母A的代码值</strong>，第一个代码平面称为基本多语言平面，收集了使用最广泛的字符，代码从U+0000到U+FFFF，剩余的16个平面的码点从U+10000到U+10FFFF。</p>
 <h3 id="Unicode编码"><a href="#Unicode编码" class="headerlink" title="Unicode编码"></a>Unicode编码</h3><h4 id="这里仅仅介绍UTF-8和UTF-16"><a href="#这里仅仅介绍UTF-8和UTF-16" class="headerlink" title="这里仅仅介绍UTF-8和UTF-16"></a>这里仅仅介绍UTF-8和UTF-16</h4><p>UTF-16是最早的Unicode字符集编码方式，通过不同长度的编码来表示所有Unicode码点。在UTF-16中，这16位字符称为一个代码单元，UTF-16通过不同数量的代码单元来代表一个码点，比如码点为U+1D546的字符，用UTF-16编码为两个代码单元U+D835和U+DD46。 </p>
 <h4 id="上面的分割是怎么实现的呢？"><a href="#上面的分割是怎么实现的呢？" class="headerlink" title="上面的分割是怎么实现的呢？"></a>上面的分割是怎么实现的呢？</h4><p>这是因为在基本多平面中(即U+0000到U+FFFF中)，有一部分代码单元是用来作为辅助字符的，比如U+D800<del>U+DBFF表明是第一个代码单元，U+DC00</del>U+DFFF用于第二个代码单元。这样我们就可以从中迅速的知道一个代码单元是一个字符的编码，还是一个辅助字符的第一或第二部分。  </p>
 <p>UTF-8是目前应用最广泛的Unicode编码方式。UTF-8也是一种变长的编码方式，一般通过1-4个字节序来表示Unicode字符。</p>
 <h3 id="JAVA中的Char"><a href="#JAVA中的Char" class="headerlink" title="JAVA中的Char"></a>JAVA中的Char</h3><p>在Java中，char类型描述了UTF-16编码中的一个代码单元。如果没有必要，我们尽量不要使用char类型。</p>
 
-          
-        
       
     </div>
     
@@ -326,144 +321,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/06/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alion">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Alion">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/06/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-06T10:40:52+08:00">
-                2020-04-06
-              </time>
+              <a href="/2020/04/06/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -473,10 +352,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -484,6 +364,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -504,8 +388,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -547,6 +440,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Unicode字符集及编码"><span class="nav-number">1.</span> <span class="nav-text">Unicode字符集及编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unicode字符集的由来"><span class="nav-number">1.1.</span> <span class="nav-text">Unicode字符集的由来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unicode编码"><span class="nav-number">1.2.</span> <span class="nav-text">Unicode编码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#这里仅仅介绍UTF-8和UTF-16"><span class="nav-number">1.2.1.</span> <span class="nav-text">这里仅仅介绍UTF-8和UTF-16</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#上面的分割是怎么实现的呢？"><span class="nav-number">1.2.2.</span> <span class="nav-text">上面的分割是怎么实现的呢？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JAVA中的Char"><span class="nav-number">1.3.</span> <span class="nav-text">JAVA中的Char</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -680,6 +589,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
