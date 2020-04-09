@@ -230,6 +230,282 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/09/JAVA%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alion">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alion">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/09/JAVA%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B97/" itemprop="url">Java学习中零碎的知识点7</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-09T10:19:16+08:00">
+                2020-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这篇文章主要用来记录学习Java过程中一些比较零碎的知识点。</p>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><ol>
+<li>Iterator接口包含四个方法：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Iterator</span>&lt;<span class="title">E</span>&gt;</span>&#123;</span><br><span class="line">    <span class="function">E <span class="title">next</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="comment">//删除上次调用next方法返回的元素，连续删除两次或者未调用next直接调用remove是</span></span><br><span class="line">    <span class="comment">//不合法的</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span></span>;  </span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">forEachRemaining</span><span class="params">(Consumer&lt;? <span class="keyword">super</span> E&gt; action)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//for-each循环</span></span><br><span class="line"><span class="comment">//for-each循环可以处理任何实现了Iterable接口的对象，这个接口只包含一个抽象方法</span></span><br><span class="line"><span class="comment">//public interface Iterable&lt;E&gt;&#123;Iterator&lt;E&gt; iterator();&#125;</span></span><br><span class="line"><span class="comment">//Collection接口扩展了Iterable接口，所以集合都可以使用for-each循环</span></span><br><span class="line"><span class="keyword">for</span>(String element: c)&#123;</span><br><span class="line">    <span class="keyword">do</span> something with element;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>为了让实现着更容易实现Collection接口，Java类库提供了一个类AbstractCollection，它保持size和iterator方法为抽象方法，实现了其他的例行方法。</li>
+<li>集合类中的接口和类。<br><img src="../src/%E9%9B%86%E5%90%88%E4%B8%AD%E7%9A%84%E6%8E%A5%E5%8F%A3.png" alt="集合中的接口"><br><img src="../src/%E9%9B%86%E5%90%88%E4%B8%AD%E7%9A%84%E7%B1%BB.png" alt="集合中的类"></li>
+<li>List接口用于描述一个有序集合，并且集合中每个元素的位置很重要。有两种访问元素的协议：一种是通过迭代器，另一种是通过get和set方法随机的访问每个元素。</li>
+<li>在java中，所有的链表实际都是双向链表的，即每个链接还存放着其前驱的引用。</li>
+<li>如果一个迭代器发现它的集合被另一个迭代器修改了，或是被该集合自身的某个方法修改了，就会抛出ConcurrentModificationException异常。<br>有一种简单的方法可以检测到并发修改，集合可以跟踪更改操作，每个迭代器为他所负责的更改操作维护一个单独的操作次数，在每个迭代器方法之前，比较两者即可。并发修改的检测有一个奇怪的例外，链表只跟踪结构性修改，set方法不被视为结构性修改。</li>
+<li>在Java中，散列表用链表数组实现，每个列表被称为桶。在java8中，桶满时会从链表变为平衡二叉树。如果大致知道最终会有多少个元素插入到散列表中，就可以设置桶数。通常，将桶数设置为预计元素的75%~150%，标准类库使用的桶数是2的幂，默认值为16.装填因子可以确定何时对散列表进行再散列。例如，如果装填因子为0.75（默认值），说明表中已经填满了75%以上，会自动再散列，新表的桶数是原来的两倍，对于大多数应用来说，装填因子为0.75是合理的。</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/09/JAVA%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alion">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alion">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/09/JAVA%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B96/" itemprop="url">Java学习中零碎的知识点6</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-09T00:03:33+08:00">
+                2020-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这篇文章主要用来记录学习Java过程中一些比较零碎的知识点。</p>
+<h2 id="泛型程序设计"><a href="#泛型程序设计" class="headerlink" title="泛型程序设计"></a>泛型程序设计</h2><ol>
+<li>泛型程序设计意味着编写的代码可以对多种不同类型的对象重用。泛型参数可以让程序更已读，更安全。</li>
+<li>泛型类就是有一个或者多个类型变量的类。泛型方法的类型变量要放在修饰符后面，并在返回类型之前。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArrayAlg</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span>&lt;T&gt; T <span class="title">getMiddle</span><span class="params">(T...a)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a[a.length / <span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">String middle ArrayAlg.&lt;String&gt;getMiddle(<span class="string">"John"</span>, <span class="string">"Q."</span>, <span class="string">"Public"</span>);</span><br></pre></td></tr></table></figure></li>
+<li>一个类型变量或通配符可以有多个限定。<code>T extends Comparable &amp; Serializable</code>，限定类型用”&amp;”分离，而逗号用来分割类型变量。</li>
+<li>在Java的继承中，可以根据需要拥有多个接口超类型，但最多有一个限定可以是类。如果有一个类作为限定，他必须是限定列表中的第一个限定。</li>
+<li><strong>Java的泛型是通过类型擦除来实现的，无论何时定义一个泛型类型，都会自动提供一个相应的原始类型，这个原始类型的名字就是去掉类型参数后的泛型类型名字。类型变量会被擦除并替换为其第一个限定类型（无限制的则会替换为Object）。</strong></li>
+<li>在编写一个泛型方法调用时，如果擦除了返回类型，编译器会插入强制类型转换。</li>
+<li>Java中泛型的几个事实：<ul>
+<li>虚拟机中没有泛型，只有普通的类和方法。</li>
+<li>所有的类型参数都会替换为他们的限定类型。</li>
+<li>会合成桥方法来保持多态。</li>
+<li>为保持类型安全，会在必要时插入强制类型转换。</li>
+</ul>
+</li>
+<li>使用泛型的一些限制:<ul>
+<li>不能基本类型实例化类型参数。</li>
+<li>运行时类型查询只适用于原始类型。</li>
+<li>不能创建参数化类型的数组。</li>
+<li>向参数可变的方法传递一个泛型类型的实例，会得到一个Varargs警告。</li>
+<li>泛型类在静态上下文中类型变量无效。- 不能抛出或捕获泛型类的实例。</li>
+<li>可以取消对检查型异常的检查。</li>
+<li>注意擦除后的冲突。 </li>
+</ul>
+</li>
+<li>反射允许你在运行时分析任意对象。在Java中每个类对应一个Class对象，保存着类的信息。可以先通过getConstructor(Class…parameterTypes)，然后newInstance即可创建一个相应的对象。</li>
+<li>java.lang.reflect包中的接口Type，包含泛型的信息，包括具体描述类型、类型变量等变量。</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/08/JAVA%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1119,7 +1395,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
