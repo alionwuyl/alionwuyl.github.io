@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="这篇文章主要记录Unicode字符集及编码方式和Java中的char类型的联系，这里仅仅是一个大概，更加详细的内容请自行搜索。 Unicode字符集及编码Unicode字符集的由来Unicode编码是一个全球统一的通用字符集，它为每个字符提供一个唯一的编号，旨在支持世界各地的交流。最开始的时候是通过两个字节，即16位bit来容纳所有的字符的，但在加入大量的汉语、日语等表意文字之后，16位的Unic">
+<meta name="description" content="这篇文章主要是需要记忆的一些点，推荐理解了B树之后再看，如果一点都没接触过B树，可以先看一下这一篇博客：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;lianzhilei&#x2F;p&#x2F;11250589.html，然后再看其他的博客相对好理解一些。  B树：一种树，允许一个结点允许可以拥有多于两个子节点的二叉搜索树，B-树为系统最优化大块数据的读和写操作。B-tree算法减少定位记录时所经历的中间过程，从">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java中的char和Unicode字符集及编码的联系">
-<meta property="og:url" content="http://yoursite.com/2020/04/06/Unicode%E5%92%8CJAVA%E7%9A%84char/index.html">
+<meta property="og:title" content="B、B+、B*树">
+<meta property="og:url" content="http://yoursite.com/2020/04/11/B%E6%A0%91%E3%80%81B+%E6%A0%91/index.html">
 <meta property="og:site_name" content="Alion">
-<meta property="og:description" content="这篇文章主要记录Unicode字符集及编码方式和Java中的char类型的联系，这里仅仅是一个大概，更加详细的内容请自行搜索。 Unicode字符集及编码Unicode字符集的由来Unicode编码是一个全球统一的通用字符集，它为每个字符提供一个唯一的编号，旨在支持世界各地的交流。最开始的时候是通过两个字节，即16位bit来容纳所有的字符的，但在加入大量的汉语、日语等表意文字之后，16位的Unic">
-<meta property="article:published_time" content="2020-04-06T04:51:09.589Z">
-<meta property="article:modified_time" content="2020-04-06T05:45:54.064Z">
+<meta property="og:description" content="这篇文章主要是需要记忆的一些点，推荐理解了B树之后再看，如果一点都没接触过B树，可以先看一下这一篇博客：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;lianzhilei&#x2F;p&#x2F;11250589.html，然后再看其他的博客相对好理解一些。  B树：一种树，允许一个结点允许可以拥有多于两个子节点的二叉搜索树，B-树为系统最优化大块数据的读和写操作。B-tree算法减少定位记录时所经历的中间过程，从">
+<meta property="og:image" content="http://yoursite.com/2020/04/11/src/%E4%B8%80%E4%B8%AAB+%E6%A0%91%E4%BE%8B%E5%AD%90.png">
+<meta property="article:published_time" content="2020-04-11T02:30:49.889Z">
+<meta property="article:modified_time" content="2020-04-11T02:36:45.461Z">
 <meta property="article:author" content="Alion">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/04/11/src/%E4%B8%80%E4%B8%AAB+%E6%A0%91%E4%BE%8B%E5%AD%90.png">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/04/06/Unicode和JAVA的char/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/04/11/B树、B+树/"/>
 
 
 
 
 
-  <title>Java中的char和Unicode字符集及编码的联系 | Alion</title>
+  <title>B、B+、B*树 | Alion</title>
   
 
 
@@ -231,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/06/Unicode%E5%92%8CJAVA%E7%9A%84char/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/11/B%E6%A0%91%E3%80%81B+%E6%A0%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alion">
@@ -248,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java中的char和Unicode字符集及编码的联系</h1>
+          <h1 class="post-title" itemprop="name headline">B、B+、B*树</h1>
         
 
         <div class="post-meta">
@@ -260,8 +262,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-06T12:51:09+08:00">
-                2020-04-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-11T10:30:49+08:00">
+                2020-04-11
               </time>
             
 
@@ -298,12 +300,57 @@
       
 
       
-        <p>这篇文章主要记录Unicode字符集及编码方式和Java中的char类型的联系，这里仅仅是一个大概，更加详细的内容请自行搜索。</p>
-<h2 id="Unicode字符集及编码"><a href="#Unicode字符集及编码" class="headerlink" title="Unicode字符集及编码"></a>Unicode字符集及编码</h2><h3 id="Unicode字符集的由来"><a href="#Unicode字符集的由来" class="headerlink" title="Unicode字符集的由来"></a>Unicode字符集的由来</h3><p>Unicode编码是一个全球统一的通用字符集，它为每个字符提供一个唯一的编号，旨在支持世界各地的交流。<br>最开始的时候是通过两个字节，即16位bit来容纳所有的字符的，但在加入大量的汉语、日语等表意文字之后，16位的Unicode不足以满足描述所有Unicode字符的需要了。<br>Unicode通过U+紧跟着十六进制数表示，现在的Unicode编码分为17个平面，每个平面有 216=65536 个码点，<strong>码点是指与一个编码表中某个字符对应的代码值，比如U+0041就是字母A的代码值</strong>，第一个代码平面称为基本多语言平面，收集了使用最广泛的字符，代码从U+0000到U+FFFF，剩余的16个平面的码点从U+10000到U+10FFFF。</p>
-<h3 id="Unicode编码"><a href="#Unicode编码" class="headerlink" title="Unicode编码"></a>Unicode编码</h3><h4 id="这里仅仅介绍UTF-8和UTF-16"><a href="#这里仅仅介绍UTF-8和UTF-16" class="headerlink" title="这里仅仅介绍UTF-8和UTF-16"></a>这里仅仅介绍UTF-8和UTF-16</h4><p>UTF-16是最早的Unicode字符集编码方式，通过不同长度的编码来表示所有Unicode码点。在UTF-16中，这16位字符称为一个代码单元，UTF-16通过不同数量的代码单元来代表一个码点，比如码点为U+1D546的字符，用UTF-16编码为两个代码单元U+D835和U+DD46。 </p>
-<h4 id="上面的分割是怎么实现的呢？"><a href="#上面的分割是怎么实现的呢？" class="headerlink" title="上面的分割是怎么实现的呢？"></a>上面的分割是怎么实现的呢？</h4><p>这是因为在基本多平面中(即U+0000到U+FFFF中)，有一部分代码单元是用来作为辅助字符的，比如U+D800~U+DBFF表明是第一个代码单元，U+DC00~U+DFFF用于第二个代码单元。这样我们就可以从中迅速的知道一个代码单元是一个字符的编码，还是一个辅助字符的第一或第二部分。  </p>
-<p>UTF-8是目前应用最广泛的Unicode编码方式。UTF-8也是一种变长的编码方式，一般通过1-4个字节序来表示Unicode字符。</p>
-<h3 id="JAVA中的Char"><a href="#JAVA中的Char" class="headerlink" title="JAVA中的Char"></a>JAVA中的Char</h3><p>在Java中，char类型描述了UTF-16编码中的一个代码单元。如果没有必要，我们尽量不要使用char类型。</p>
+        <p>这篇文章主要是需要记忆的一些点，推荐理解了B树之后再看，<strong>如果一点都没接触过B树，可以先看一下这一篇博客：<a href="https://www.cnblogs.com/lianzhilei/p/11250589.html，然后再看其他的博客相对好理解一些。" target="_blank" rel="noopener">https://www.cnblogs.com/lianzhilei/p/11250589.html，然后再看其他的博客相对好理解一些。</a></strong></p>
+<ol>
+<li>B树：一种树，允许一个结点允许可以拥有多于两个子节点的二叉搜索树，B-树为系统最优化大块数据的读和写操作。B-tree算法减少定位记录时所经历的中间过程，从而加快存取速度。普遍运用在数据库和文件系统。<br>B树的定义：B树是一种平衡的多分树，通常我们说的m阶的B树，它必须满足下面的条件：  </li>
+</ol>
+<ul>
+<li>每个节点最多有m个子节点。</li>
+<li>每个非叶子结点(除了根)具有至少⌈ m/2⌉子节点。</li>
+<li>如果根不是叶子结点，则根至少有两个子节点。</li>
+<li>具有k个子节点的非叶子结点包含k-1个键。</li>
+<li>所有叶子都出现在同一水平，没有任何信息(高度一致)。 </li>
+</ul>
+<ol start="2">
+<li>B树的特性：</li>
+</ol>
+<ul>
+<li>关键字集合分布在整颗树中；</li>
+<li>任何一个关键字出现且只出现在一个结点中；</li>
+<li>搜索有可能在非叶子结点结束；</li>
+<li><strong>其搜索性能等价于在关键字全集内做一次二分查找；</strong></li>
+<li>自动层次控制；<br>B+树是B-树的变体，也是一种多路搜索树：</li>
+<li>其定义基本与B-树同，除了：</li>
+<li>非叶子结点的子树指针与关键字个数相同；</li>
+<li>非叶子结点的子树指针P[i]，指向关键字值属于[K[i], K[i+1])的子树（B-树是开区间）；</li>
+<li>为所有叶子结点增加一个链指针；</li>
+<li>所有关键字都在叶子结点出现；<br><img src="../src/%E4%B8%80%E4%B8%AAB+%E6%A0%91%E4%BE%8B%E5%AD%90.png" alt="B+树例子">    </li>
+</ul>
+<ol start="3">
+<li><strong>总结</strong></li>
+</ol>
+<ul>
+<li>二叉搜索树：二叉树，每个结点只存储一个关键字且值大于左子树，小于右子树。</li>
+<li>B（B-）树：多路搜索树，每个结点存储M/2到M个关键字，非叶子结点存储指向关键字范围的子结点； 所有关键字在整颗树中出现，且只出现一次，非叶子结点可以命中；</li>
+<li>B+树：在B-树基础上，为叶子结点增加链表指针，所有关键字都在叶子结点<br>中出现，非叶子结点作为叶子结点的索引；B+树总是到叶子结点才命中；</li>
+<li>B*树：在B+树基础上，为非叶子结点也增加链表指针，将结点的最低利用率<br>从1/2提高到2/3；  </li>
+</ul>
+<ol start="4">
+<li><strong>为什么说B+树比B树更适合做数据库索引？</strong>  <ol>
+<li>B+树的磁盘读写代价更低。</li>
+<li>B+树查询效率更高(每次必须到叶子结点)。</li>
+<li><strong><em>B+树便于范围查找(范围查找是常态，这点最重要)</em></strong>，B树在提高了IO性能的同时并没有解决元素遍历的我效率低下的问题，正是为了解决这个问题，B+树应用而生。B+树只需要去遍历叶子节点就可以实现整棵树的遍历。</li>
+<li>B树的范围查找用的是中序遍历，而B+树用的是在链表上遍历。</li>
+</ol>
+</li>
+<li>数据库的索引：顺序文件上的索引、B+树索引、散列索引和位图索引。</li>
+</ol>
+<ul>
+<li>顺序文件上的索引：顺序文件上的索引是针对按指定属性值升序或者降序存储的关系，在该属性上建立一个顺序索引文件，索引文件由属性值和相应的元组指针组成。</li>
+<li><strong>B+树索引：B+树索引是将索引属性组织成B+树形式，B+树的叶节点为属性值和相应的元组指针，B+树索引具有动态平衡的状态。</strong></li>
+<li>散列索引是建立若干个桶，将索引属性按照其散列函数值映射到相应的桶中，桶中存放索引属性值和相应的元组指针。散列索引具有查找速度快的特点。</li>
+<li>位图索引是用位向量记录索引属性中可能出现的值，每个位向量对应一个可能值。</li>
+</ul>
 
       
     </div>
@@ -328,15 +375,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2020/04/10/SQL%E5%B8%B8%E7%94%A8%E7%94%A8%E6%B3%95/" rel="next" title="SQL常用用法">
+                <i class="fa fa-chevron-left"></i> SQL常用用法
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/04/06/JAVA%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B91/" rel="prev" title="Java学习中零碎的知识点1">
-                Java学习中零碎的知识点1 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -388,17 +435,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -440,22 +478,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Unicode字符集及编码"><span class="nav-number">1.</span> <span class="nav-text">Unicode字符集及编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unicode字符集的由来"><span class="nav-number">1.1.</span> <span class="nav-text">Unicode字符集的由来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unicode编码"><span class="nav-number">1.2.</span> <span class="nav-text">Unicode编码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#这里仅仅介绍UTF-8和UTF-16"><span class="nav-number">1.2.1.</span> <span class="nav-text">这里仅仅介绍UTF-8和UTF-16</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#上面的分割是怎么实现的呢？"><span class="nav-number">1.2.2.</span> <span class="nav-text">上面的分割是怎么实现的呢？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JAVA中的Char"><span class="nav-number">1.3.</span> <span class="nav-text">JAVA中的Char</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
