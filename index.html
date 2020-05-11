@@ -230,6 +230,1379 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/11/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF/%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alion">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alion">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/11/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF/%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81/" itemprop="url">Java乐观锁和悲观锁</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-11T10:27:39+08:00">
+                2020-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="什么是乐观锁和悲观锁"><a href="#什么是乐观锁和悲观锁" class="headerlink" title="什么是乐观锁和悲观锁"></a>什么是乐观锁和悲观锁</h2><p>乐观锁总是假定情况是最好的，即每次去拿数据的时候都认为别人不会修改数据，就不会上锁，但是在更新的时候会判断其他线程在这之前有没有对数据进行修改，一般使用<strong>版本号机制</strong>和<strong>CAS算法</strong>实现。<br>在Java中，java.util.concurrent.atomic包下面的原子变量类就是使用了乐观锁的一种实现方式CAS实现的。  </p>
+<p>悲观锁总是假定情况是最坏的，即每次去拿数据的时候都认为别人会修改数据，每次拿数据的时候都会上锁，别人想拿到数据就会阻塞到它拿到锁。<br>Java的synchronized和ReentrantLock()等独占锁就是悲观锁的实现。</p>
+<h2 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h2><p>乐观锁：适用于读多，写少的场景，冲突几率小。<br>悲观锁：适用于写多，读少的场景，冲突几率大。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF/%E5%BC%95%E7%94%A8%E7%9A%84%E5%88%86%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alion">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alion">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/09/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF/%E5%BC%95%E7%94%A8%E7%9A%84%E5%88%86%E7%B1%BB/" itemprop="url">Java的引用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-09T09:23:59+08:00">
+                2020-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>主要用来记录学习Java过程中一些比较零碎的知识点。</p>
+<h2 id="Java的引用"><a href="#Java的引用" class="headerlink" title="Java的引用"></a>Java的引用</h2><p>从JDK1.2版本开始，对象的引用被划分为4种级别，从而使程序能够更加灵活的控制对象的声明周期。这四种级别<strong>从高到底</strong>依次为强引用、软引用、弱引用和虚引用。</p>
+<ul>
+<li>强引用是使用最普遍的引用。如果一个对象具有强引用，那么垃圾回收器绝不会回收它。</li>
+<li>软引用是当内存空间充足时，垃圾回收期就不会回收它，如果内存空间不足了，就会回收这些对象的内存。只要垃圾回收器没有回收它，该对象就可以被程序使用。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//强引用</span></span><br><span class="line">String stringReference = <span class="keyword">new</span> String(<span class="string">"abc"</span>);</span><br><span class="line"><span class="comment">//软引用</span></span><br><span class="line">String str = <span class="keyword">new</span> String(<span class="string">"abc"</span>);</span><br><span class="line">SoftReference&lt;String&gt; softReference = <span class="keyword">new</span> SoftReference&lt;String&gt;(str);</span><br></pre></td></tr></table></figure>
+当内存不足时，JVM首先将软引用的对象引用置为null，然后通知垃圾回收期就行回收。</li>
+<li>弱引用与软引用的区别在于：只具有弱引用的对象拥有更短暂的生命周期。在垃圾回收器线程扫描它所管辖的内存区域的过程中，一旦发现了只具有弱引用的对象，不管当前内存空间足够与否，都会回收它的内存。不过，由于垃圾回收器是一个优先级很低的线程，因此不一定会很快发现那些只具有弱引用的对象。</li>
+<li>虚引用顾名思义，就是形同虚设。与其他几种引用都不同，虚引用并不会决定对象的生命周期。如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被垃圾回收器回收。虚引用主要用来跟踪对象被垃圾回收器回收的活动。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/06/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E8%89%BA%E6%9C%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alion">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alion">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/06/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E8%89%BA%E6%9C%AF/" itemprop="url">Java并发编程的艺术</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-06T23:07:49+08:00">
+                2020-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这篇文章主要用来记录学习Java过程中一些比较零碎的知识点。</p>
+<h2 id="并发编程的艺术"><a href="#并发编程的艺术" class="headerlink" title="并发编程的艺术"></a>并发编程的艺术</h2><h3 id="并发执行的速度并不一定比串行快"><a href="#并发执行的速度并不一定比串行快" class="headerlink" title="并发执行的速度并不一定比串行快"></a>并发执行的速度并不一定比串行快</h3><p>并发：一个处理器同时处理多个任务。<br>并行：多个处理器或者是多核的处理器同时处理多个不同的任务。</p>
+<p>原因是因为线程的创建和上下文切换有开销。</p>
+<h3 id="减少上下文切换的方式有无锁并发编程、CAS算法、使用最少线程和使用协程"><a href="#减少上下文切换的方式有无锁并发编程、CAS算法、使用最少线程和使用协程" class="headerlink" title="减少上下文切换的方式有无锁并发编程、CAS算法、使用最少线程和使用协程"></a>减少上下文切换的方式有无锁并发编程、CAS算法、使用最少线程和使用协程</h3><ol>
+<li>CAS算法：即Compare And Swap(比较与交换),是一种无锁算法，能够在不使用锁的情况下实现多线程之间的变量同步。<br>jdk中的java.util.concurrent.atomic包中的原子类就是通过CAS来实现乐观锁。</li>
+<li>CSA算法涉及3个操作数：</li>
+</ol>
+<ul>
+<li>需要读写的内存位置V</li>
+<li>需要进行比较的预期值A</li>
+<li>需要写入的新值U</li>
+</ul>
+<ol start="3">
+<li>CAS会有如下两个方面的问题</li>
+</ol>
+<ul>
+<li>ABA问题：一个线程将变量从A改为B，另一个线程又从B改回到A。可以通过加时间标或者版本号来解决。</li>
+<li>循环时间长开销大：CAS算法需要不断通过自旋读取最新的内存值，长时间读取不到就会造成不必要的CPU开销。</li>
+<li>只能保证一个共享变量的原子操作。<br>对象的原子性可以通过将多个变量放到一个对象中进行CAS操作。</li>
+</ul>
+<ol start="4">
+<li>进程与线程、协程<ul>
+<li>进程是资源分配的最小单位，线程是程序执行的最小单位。</li>
+<li>进程有自己的独立地址空间，每启动一个进程，系统就为他分配地址空间，建立数据表来维护代码段、堆栈段和数据段。这种操作开销很大。线程共享进程的数据，使用相同的地址空间，因此CPU切换一个线程的花费远比进程小很多，同时创建一个线程的开销也比进程小很多。</li>
+<li>线程之间的通信更方便，同一进程下的线程共享全局变量、静态变量等数据，进程间的通信就复杂一些。不过如何处理好同步和互斥是编写多线程程序的难点。</li>
+<li>多进程程序更健壮，多线程程序只要有一个线程死掉，整个进程也就死掉了，而一个进程四点并不会对另一个进程造成影响，因为进程有自己独立的地址空间。</li>
+<li>线程共享：进程代码段、进程的公有数据，利用公有数据可以很容易的进行通信，进程打开的文件描述符、信号处理器、进程的当前目录和进程用户ID与进程ID。</li>
+<li><strong>线程独有：自己的运行时栈（保存运行状态和局部自动变量）、程序计数器。</strong></li>
+</ul>
+</li>
+</ol>
+<h3 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h3><p>在多处理器开发中保证了共享变量的“可见性”，可见性的意思是当一个线程修改一个共享变量的时候，另外一个线程能读到这个修改的值。<br>在Intel的处理器上面，编译成汇编指令的时候用volatile修饰的变量最后会多出一条lock指令，这个指令有两个作用，一是将当前处理器缓冲行的数据写回到内存，二是这个会使内存的操作会使其他CPU里缓存了该内存地址的数据无效。</p>
+<h3 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h3><p>Java中每个对象都可以作为锁，具体表现为三种形式：</p>
+<ul>
+<li>对于普通同步方法，锁是当前实例对象<br><code>public synchronized void doLongTimeTaskC() {}</code></li>
+<li>对于静态同步方法，锁是当前类的Class对象<br><code>public synchronized static void doLongTimeTaskA() {}</code></li>
+<li>对于同步方法块，锁是Synchronized括号里配置的对象，可以是实例对象，也可以是CLass对象。  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doLongTimeTaskD</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doLongTimeTaskE</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">synchronized</span> (Task<span class="class">.<span class="keyword">class</span>) </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+synchronized使用的锁是存在Java对象头里面的，对象头里有特定的位来表示不同的锁，锁的级别从低到高可以分为无锁、偏向锁、轻量级锁和重量级锁这四种状态，锁可以升级但不可以降级，目的是提高获得锁和释放锁的效率。<br>偏向锁主要适用与只有一个线程访问同步块的情况：当一个线程访问同步块并获取锁时，会在对象头和栈帧中的锁记录里存储锁偏向的线程ID，以后该线程在进入和退出同步块时不需要进行CAS操作来加锁和解锁，只需要简单的测试一下对象头的MarkWord里是否存储着指向当前线程的偏向锁，如果测试成功，表示线程已经获得了锁。如果测试失败，需要再测试一下MarkWord中偏向锁的标识是否设置为1，如果没有设置使用CAS竞争锁，如果设置了，尝试使用CAS将对象头的偏向锁指向当前线程。<br><img src="../../src/Java%E9%94%81.png" alt="Java锁"></li>
+</ul>
+<p><strong>Java中可以通过锁或者循环CAS的方式实现原子操作。</strong><br>处理器保证原子性的方式：适用总线锁或者缓存锁。</p>
+<h3 id="Java并发编程艺术"><a href="#Java并发编程艺术" class="headerlink" title="Java并发编程艺术"></a>Java并发编程艺术</h3><p>一个Java程序的运行不仅仅是main方法的运行，而是main线程和多个其他线程的同时运行。<br>现代操作系统都采用时分的形式调度运行的线程，在Java线程中，通过一个整型变量priority来控制优先级，优先级范围从1~10，默认优先级是5，但CPU可以忽略Java的优先级设置，所以程序正确性不能依赖线程的优先级高低。  </p>
+<h5 id="Java线程状态"><a href="#Java线程状态" class="headerlink" title="Java线程状态"></a>Java线程状态</h5><p><img src="../../src/Java%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81.png" alt="Java线程状态"></p>
+<p>Daemon线程：一种支持型线程，因为它主要被用作程序中后台调度以及支持性工作，当一个Java虚拟机中不存在非Daemon线程的时候，Java虚拟机将会退出，值得注意的是Daemon中的finally块并不一定会执行。<br>线程的很多属性都是基于父线程的。<br>Thread中的suspend()、resume()、stop()等函数都是过时的，不推荐使用。<br>Java支持多个线程同时访问一个对象或者对象的成员变量，由于每个线程可以拥有这个变量的拷贝(虽然对象以及成员变量分配的内存是在共享内存中，但是每个执行的线程还是可以拥有一个拷贝，这样做的目的是加速程序的执行，这是现代多核处理器的一个显著的特性)，所以程序在执行过程中，一个线程看到的变量并不一定是最新的。<br>关键字volatile可以用来修饰字段(成员变量)，就是告知程序任何对该变量的访问均需要从共享内存中获取，而对他的改变必须同步刷新回共享内存，它能保证所有线程对变量访问的可见性。  </p>
+<p>用synchronized修饰的同步块是通过获取monitor来实现的，每个对象都有一个都有一个监视器monitor。  </p>
+<h5 id="等待-通知机制"><a href="#等待-通知机制" class="headerlink" title="等待/通知机制"></a>等待/通知机制</h5><p><img src="../../src/%E7%AD%89%E5%BE%85_%E9%80%9A%E7%9F%A5.png" alt="等待_通知"><br>等待/通知机制，是指一个线程A调用了O的wait()方法进入等待状态，而另一个线程B调用了对象O的notify()或者notifyAll()方法，线程A收到通知后从对象O的wait()方法返回，进而执行后续操作。  </p>
+<ol>
+<li>使用wait()、notify()和notifyAll()时需要先对调用对象加锁。</li>
+<li>调用wait()方法后，线程状态有RUNNING变为WAITING，并将当前线程放置到对象的等待状态。</li>
+<li>notify()或notifyAll()方法调用后，等待线程依旧不会从wait()返回，需要调用notify()或notifyAll()的线程释放锁之后，等待线程才有机会从wait()返回。</li>
+<li>notify()方法将等待队列中的一个等待线程从等待队列中移动到同步队列中，而notifyAll()方法则是将等待队列中所有的线程全部移动到同步队列，被移动的线程的状态由WAITING变为BLOCKED。</li>
+<li>从wait()方法返回的前提是获得了调用对象的锁。<br>如果一个线程执行了thread.join()语句，当前线程A等待thread线程终止之后才从thread.join()返回。  </li>
+</ol>
+<h5 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a>ThreadLocal</h5><p>我的理解是ThreadLocal提供了线程局部变量，每个线程可以通过set()和get()来对这个局部变量进行操作，但不会和其他线程的局部变量进行冲突，实现了线程的数据隔离。<br>作用：</p>
+<ul>
+<li>管理Connection，数据库的Connection，ThreadLocal能够实现当前线程的操作都是在同一个Connection，保证了事务。</li>
+<li>避免了一些参数传递。</li>
+<li>数据库管理、Session管理。<br>ThreadLocal原理总结：</li>
+<li>每个Thread维护着一个ThreadLocalMap的引用</li>
+<li>ThreadLocalMap是ThreadLocal的内部类，用Entry来进行存储</li>
+<li>调用ThreadLocal的set()方法时，实际上就是往ThreadLocalMap设置值，key是ThreadLocal对象，值是传递进来的对象</li>
+<li>调用ThreadLocal的get()方法时，实际上就是往ThreadLocalMap获取值，key是ThreadLocal对象</li>
+<li>ThreadLocal本身并不存储值，它只是作为一个key来让线程从ThreadLocalMap获取value。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/22/%E9%98%9F%E5%88%97%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alion">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alion">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/22/%E9%98%9F%E5%88%97%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/" itemprop="url">Java中队列常用用法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-22T09:23:58+08:00">
+                2020-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这篇文章用来记录一下Java中队列的常用用法。</p>
+<ol>
+<li>如果需要使用一个循环数组队列，直接使用ArrayDeque类。如果需要使用一个链表队列，直接使用LikedList类，这个类实现了Queue接口。</li>
+<li>Queue接口提供了插入、提取、检查等操作，由两种形式存在。</li>
+</ol>
+<ul>
+<li>add(e)、remove()、element()会抛出异常。</li>
+<li>offer(e)、poll()、peek()则是返回null。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/21/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alion">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alion">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/21/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" itemprop="url">Java虚拟机类加载机制</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-21T18:31:43+08:00">
+                2020-04-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>虚拟机类加载机制。</p>
+<ol>
+<li>Java虚拟机把描述类的数据从Class文件加载到内存，并对数据进行检验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型，这个过程被称为虚拟机的类加载机制。</li>
+<li>一个类型从被加载到虚拟机内存中开始，到卸载出内存为止，它的生命周期将会经历加载、验证、准备、解析、初始化、使用和卸载七个阶段，其中验证、准备、解析三个部分统称为连接，加载、验证、准备、初始化和卸载这五个阶段的顺序是确定的。</li>
+<li>加载过程，在加载阶段，Java虚拟机需要完成以下三件事情：</li>
+</ol>
+<ul>
+<li>通过一个类的全限定名来获取定义此类的二进制字节流。</li>
+<li>将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构。</li>
+<li>在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口。</li>
+</ul>
+<ol start="4">
+<li>验证<br>验证是连接阶段的第一步，这一阶段的目的是确保Class文件的字节流中包含的信息符合《Java虚拟机规范》的全部约束要求，确保这些信息被当做代码运行后不会危害虚拟机自身的安全。</li>
+<li>准备<br>准备阶段是正式为类中定义的变量(即静态变量，被static修饰的变量)分配内存并设置类变量初始值的阶段。</li>
+<li>解析<br>解析阶段是Java虚拟机将常量池内的符号引用替换为直接引用的过程，解析动作主要针对类或接口、字段、类方法、接口方法等这些符号引用进行。</li>
+<li>初始化<br>直到初始化阶段，Java虚拟机才真正开始执行类中编写的Java程序代码，将主导权移交给应用程序。</li>
+<li>解析阶段<br>解析阶段在某些情况下可以在初始化阶段之后再开始，这是为了支持Java语言的运行时绑定特性。</li>
+<li>魔数<br>所谓魔数和魔字符串就是指在代码中出现但没有解释的数字常量或字符串，又称魔法值。如果在某个程序中你使用了魔数，那么在几个月或几年后你将很可能不知道它的含义是什么。<br>大多数情况下，我们都是通过扩展名来识别一个文件的类型的，比如我们看到一个.txt类型的文件我们就知道他是一个纯文本文件。但是，扩展名是可以修改的，当一个文件的扩展名被修改过，怎么识别一个文件的类型呢？这就用到了我们提到的“魔数”。很多类型的文件，其起始的几个字节的内容是固定的（或是有意填充，或是本就如此）这几个字节的内容也被称为魔数，因为根据这几个字节的内容就可以确定文件类型。有了这些魔术数字，我们就可以很方便的区别不同的文件。</li>
+<li>Java虚拟机设计团队有意把加载阶段中的“通过一个类的全限定名来获取描述该类的二进制字节流”这个动作放到Java虚拟机外部趋势线，以便让应用程序自己决定如何去获取所需的类，实现这个动作的代码称为“类加载器”。<br>任何一个类，都必须由加载它的类加载器和这个类本身一起共同确立其在Java虚拟机中的唯一性，每一个类加载器，都拥有一个独立的类名称空间。<br>有两种加载器：一种是启动类加载器，另一种是其他所有的类加载器。</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/20/JAVA%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alion">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alion">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/20/JAVA%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5/" itemprop="url">JAVA垃圾收集器与内存分配策略</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-20T21:14:31+08:00">
+                2020-04-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>JAVA的垃圾回收面对的内存一般是堆，栈的生命周期跟线程的生命周期同步，很好确定。</p>
+<ol>
+<li>如何确认对象已死？</li>
+</ol>
+<ul>
+<li>引用计数算法，每个对象添加一个引用计数器，计时器为0的对象就是不可能被使用的对象。在Java领域，至少主流的Java虚拟机里面都没有选用引用计数算法来管理内存，主要原因是这个看似简单的算法有很多例外情况要考虑，必须要配合大量额外处理才能保证正确地工作，比如相互循环引用。</li>
+<li>可达性分析算法<br>当前主流的商用程序语言(Java、C#等)的内存管理子系统，都是通过可达性分析算法来判定对象是否存活的。这个算法的基本思想是通过一系列称为“GC Roots”的根对象作为起始节点集，从这些结点开始，根据引用关系向下搜索，搜索过程所走过的路径称为引用链，如果某个对象到GC Roots间没有任何引用链，或者用图论的话来说就是从GC Roots到这个对象不可达时，则证明此对象是不可能再被使用的。</li>
+</ul>
+<ol start="3">
+<li>引用<br>Java的引用分为强引用、软引用、弱引用和虚引用。</li>
+</ol>
+<ul>
+<li>强引用是指在程序代码之间普遍存在的引用赋值。</li>
+<li>软引用是用来描述一些还有用，但非必须的对象，只被软引用关联的对象，在系统要发生溢出异常之前，会把这些对象列进回收范围进行二次回收。</li>
+<li>弱引用也是用来描述那些非必须对象，但是他的强度比软引用弱一些，被弱引用关联的对象只能生存到下一次垃圾收集发生为止。</li>
+<li>虚引用也称为“幽灵引用”或“幻影引用”，此引用的唯一目的是这个对象被收集器回收时收到一个系统通知。</li>
+</ul>
+<ol start="4">
+<li>如果对象在进行可达性分析后发现没有与GC Roots相连接的引用链，那么它将被第一次标记，随后进行一次筛选，筛选的条件时此对象是否有必要执行finalize()方法。</li>
+<li>当前商业虚拟机的收集器大多遵循分代收集的理论进行设计。这是建立在两个经验法则上面的：弱分代假说，绝大数对象都是朝生夕灭的。强分代假说：熬过越多次垃圾收集过程的对象越难以消亡。</li>
+<li>Java垃圾回收算法</li>
+</ol>
+<ul>
+<li>标记-清理算法，其他算法的基础<ul>
+<li>简单方便</li>
+<li>执行效率不稳定，如果Java堆中有大量的对象，其中有大部分需要清除，这时必须要进行大量的标记清除动作，导致标记和清除两个过程的执行效率都随对象的数量增长而增长。</li>
+<li>容易产生内存碎片</li>
+</ul>
+</li>
+<li>标记-复制算法<ul>
+<li>面向大量可回收对象时执行效率低的问题</li>
+<li>不会产生碎片</li>
+<li>缺点是会浪费一部分内存</li>
+</ul>
+</li>
+<li>标记-整理算法<ul>
+<li>适合存活对象多，垃圾少的情况</li>
+<li>需要整理的过程</li>
+</ul>
+</li>
+</ul>
+<ol start="7">
+<li>经典垃圾收集器</li>
+</ol>
+<ul>
+<li>Serial收集器：一个单线程工作的收集器，是HotSpot虚拟机运行在客户端模式下的默认新生代收集器，采用标记-复制算法，这个收集器优于其他收集器的地方是简单而高效(与其他收集器的单线程相比)，对于内存资源受限的环境，它是所有收集器里额外内存消耗最小的。所以，Serial收集器对于运行在客户端模式下的虚拟机来说是一个很好的选择。</li>
+<li>ParNew收集器：Serial收集器的多线程并行版本，现在还是用他的原因是除了Serial收集器之外，目前只有它能与CMS收集器(第一款HotSpot支持的并发垃圾收集器)配合工作。</li>
+<li>Parallel Scavenge：也是基于标记-复制算法，特点是关注点与其他的收集器不一样，其他的收集器关注点是尽可能的缩短垃圾收集时用户线程的停顿时间，而Parallel Scavenge目标是达到一个可控的吞吐量。</li>
+<li>Serial Old收集器：一个单线程收集器，使用标记-整理算法。</li>
+<li>Parallel Old收集器：支持多线程并发收集，基于标记-整理算法实现。</li>
+<li>CMS收集器：CMS收集器是一种以获取最短回收停顿时间为目标的收集器。是基于标记-清除算法实现的，清理过程分为四个过程：初始标记、并发标记、重新标记、并发清除。特点是并发收集，低停顿。同样存在三个缺点：<ul>
+<li>CMS收集器对处理器资源非常敏感。</li>
+<li>CMS收集器无法回收“浮动垃圾”，即在清理过程中出现的垃圾。</li>
+<li>会产生内存碎片。</li>
+</ul>
+</li>
+<li>Garbage First收集器(G1)：开创了面向局部收集的设计思路和基于Region的内存布局形式。G1是一款主要面向服务端应用的垃圾收集器。运行过程大致分为出师表及、并发标记、最终标记、筛选回收。</li>
+</ul>
+<ol start="8">
+<li>低延迟垃圾收集器<br>衡量垃圾收集器的三项最重要的指标是：内存占用、吞吐量和延迟，三者共同构成了一个“不可能三角”(三元悖论)。</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/20/JAVA%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alion">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alion">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/20/JAVA%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/" itemprop="url">JAVA的内存区域</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-20T20:14:01+08:00">
+                2020-04-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>JAVA的内存模型。</p>
+<ol>
+<li>JAVA的内存大致分为堆、栈和程序计数器三种。</li>
+<li>程序计数器用于记录指令执行到的指令位置信息。</li>
+<li><strong>每个线程都有自己独有的程序计数器和运行时栈，运行时栈又可以分为虚拟机栈和本地方法栈。</strong>栈的生命周期和线程的生命周期是同步的。对于一个线程栈，每当一个方法执行的时候都会创建一个栈帧，用来存放局部向量表、操作数栈、方法出口等信息。每一个方法被调用直至执行完毕的过程，就对应着一个栈帧在虚拟机栈中从出栈到入栈的过程。本地方法栈与虚拟机栈作用类似，区别是虚拟机栈为java字节码服务的，而本地方法栈为本地(native)方法服务的。</li>
+<li>Java堆是被所有线程共享的一块内存区域，在虚拟机启动时创建，Java中几乎所有的对象实例和数组都应当在堆上分配，Java堆是垃圾收集器管理的内存区域，所以有时候称为“GC堆”。</li>
+<li>方法区与Java堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的类型信息、常量、静态变量等数据(有时也称为永久代)。运行时常量池是方法去的一部分。Class文件中除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池表，用于存放编译期间生成的各种字面量与符号引用，运行时常量池另一个重要特性是动态性，被利用最多的就是String的intern()方法。</li>
+<li>Hotspot虚拟机中java的分配、布局和访问。</li>
+</ol>
+<ul>
+<li>当Java虚拟机遇到一条字节码new指令时，首先将去检查这个指令的参数是否能够在常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已经被加载、解析和初始化过，如果没有，先执行相应的类加载过程。对象所需内存的大小在类加载完成后便可确定。</li>
+<li>分配时的线程安全问题<ul>
+<li>对分配内存空间的动作进行同步处理–实际上虚拟机是采用CAS配上失败重试的方式保证更新操作的原子性。</li>
+<li>把内存分配的动作按照线程霍芬在不同的空间中进行，即每个线程预先在堆中分配一小块区域，称为本地线程分配缓冲(TLAB)，只有这个(TLAB)用完才需要同步锁定。</li>
+</ul>
+</li>
+</ul>
+<ol start="7">
+<li>CAS和重试<br>CAS(即compare and swap)：CAS 操作包含三个操作数 —— 内存位置（V）、预期原值（A）和新值(B)。 如果内存位置的值与预期原值相匹配，那么处理器会自动将该位置值更新为新值 。否则，处理器不做任何操作。无论哪种情况，它都会在 CAS 指令之前返回该 位置的值。（在 CAS 的一些特殊情况下将仅返回 CAS 是否成功，而不提取当前 值。）CAS 有效地说明了“我认为位置 V 应该包含值 A；如果包含该值，则将 B 放到这个位置；否则，不要更改该位置，只告诉我这个位置现在的值即可。”<br>CAS存在的问题：</li>
+</ol>
+<ul>
+<li>ABA问题：可以通过增加版本号来解决。</li>
+<li>循环时间长开销大。自旋CAS如果长时间不成功，会给CPU带来非常大的执行开销。</li>
+<li>只能保证一个共享变量的原子操作。</li>
+</ul>
+<ol start="8">
+<li>对象的内存布局<br>在HotSpot虚拟机中，对象在堆内存中的存储布局可以划分为三个部分：对象头、实例数据、对齐填充。<br>HotSpot虚拟机的对象头包含两种信息：<ul>
+<li>用于存储对象自身的运行时数据，如哈希码、GC分代年龄等等</li>
+<li>另一部分是类型指针，指向类型元数据的指针，Java虚拟机通过这个知道对象是那个类的实例。</li>
+</ul>
+</li>
+<li>对象的访问定位：</li>
+</ol>
+<ul>
+<li>使用句柄<br>Java堆中划分出一部分区域用作句柄池，reference中存储的就是对象的句柄地址，而句柄中包含对象的实例数据与类型数据各自具体的地址信息。</li>
+<li>使用直接指针<br>reference中存储的直接就是对象地址，不需要一次间接访问的开销。Hotspot主要使用这种方式。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/16/JAVA%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alion">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alion">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/16/JAVA%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B98/" itemprop="url">Java学习中零碎的知识点8</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-16T11:22:12+08:00">
+                2020-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这篇文章主要用来记录学习Java过程中一些比较零碎的知识点。</p>
+<h2 id="多线程和并行程序设计"><a href="#多线程和并行程序设计" class="headerlink" title="多线程和并行程序设计"></a>多线程和并行程序设计</h2><ol>
+<li>内部类的概念：内部类也称为嵌套类，是在一个类的内部定义的类。<ul>
+<li>内部类不能定义在方法中，并且分为实例内部类和静态内部类<ul>
+<li>实例内部类中不允许定义静态成员。创建实例内部类的对象需要使用<code>外部类的实例变量.new 实例内部类类名()</code>，即只有当有了外部类的实例，才能实例化<code>实例内部类</code>的对象。、</li>
+<li>静态内部类用static定义，内不允许定义实例成员和静态成员，静态内部类的方法不能访问外部类的实例成员变量，创建静态内部类的对象时需要使用<code>new 外部类.静态内部类()</code>。</li>
+</ul>
+</li>
+<li>内部类可以被成员访问控制修饰符修饰(私有、缺省、包含、公有的),访问控制规则和类成员访问控制一样。</li>
+<li>一个内部类被编译成OuterClassName$InnerClassName的类。</li>
+<li>内部匿名类的概念<ul>
+<li>语法:<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> SuperClass/InterfaceName()&#123;</span><br><span class="line">    <span class="comment">//implement or override methods in superclass or interface </span></span><br><span class="line">    <span class="comment">//Other method if nessary</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>匿名内部类总是使用父类的无参构造方法残生实例，对于接口使用Object()。</li>
+<li>一个内部匿名类被编译成OuterClassName$n.class, n是数字。</li>
+</ul>
+</li>
+<li>编译器将lambda表达式看做匿名内部类对象</li>
+</ul>
+</li>
+<li>一个典型的GUI程序分为<ul>
+<li>GUI线程：处理UI消息循环，如鼠标消息、键盘消息</li>
+<li>Worker线程：后台的数据处理工作，比如打印文件、大数据量的运算</li>
+</ul>
+</li>
+<li>实现线程的两种方式：<ul>
+<li>定义Thread类的子类并覆盖run方法</li>
+<li>实现接口Runnable的run方法,其中唯一的接口方法是<code>void run()</code>，该方法定义了线程执行的功能。<ul>
+<li>创建实现Runnable接口的类的对象</li>
+<li>利用Thread类的构造函数创建线程对象，<code>public Thread(Runnable target)</code></li>
+<li>通过线程对象的start()方法启动线程</li>
+</ul>
+</li>
+<li>可用synchronized关键字来同步，保证一次只有一个线程可以访问这个方法，当一个方法被synchronized修饰，这个方法就是原子的(一个线程开始执行这个方法，就不可中断)。<ul>
+<li>临界区可以是方法，包括静态方法和实例方法，被synchronized修饰的方法叫同步方法。</li>
+<li>临界区也可以是语句块，可以用synchronized关键字来同步语句块，如synchronized(this){…}</li>
+<li>除了用synchronized关键字，还可利用加锁同步临界区。</li>
+</ul>
+</li>
+<li>synchronized如何做到方法同步的？<br>  通过加锁，一个线程要进入同步方法，首先拿到锁，进入方法后立刻上锁，导致其他要进入这个方法的线程被阻塞。<br>  对于synchronized修饰的实例方法，是对调用该方法的对象加锁。<br>  对于synchronized修饰的今天方法，是对拥有这个静态方法的类加锁。</li>
+<li>被synchronized修饰的语句块称为同步块<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sychronized(expr)&#123;statement;&#125;</span><br></pre></td></tr></table></figure>
+表达式expr的求值结果必须是一个对象的引用</li>
+</ul>
+</li>
+<li>一个锁是一个Lock接口的实例，类ReentrantLock是Lock的一个具体实现，可重入的锁（一个线程在持有一个锁的时候，能否再次申请该锁，如果一个线程已经获得了锁，他还可以再次获取该锁而不会死锁，那么我们就称该锁为可重入锁）。<br>Java的synchronized隐式支持重入性。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">methodA</span><span class="params">()</span></span>&#123;</span><br><span class="line">    lock.lock();</span><br><span class="line">    methodB();</span><br><span class="line">    lock.unlock();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">methodB</span><span class="params">()</span></span>&#123;</span><br><span class="line">    lock.lock();</span><br><span class="line">    <span class="comment">//其他业务</span></span><br><span class="line">    lock.unlock();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>线程同步的几种情况</li>
+</ol>
+<ul>
+<li>假设一个类有多个synchronized修饰的同步方法，如果多个线程访问这个类的同一个对象，当一个线程获得了该对象锁并进入到其中的一个同步方法时，这把锁会锁住这个对象的所有的同步实例方法。</li>
+<li>假设一个类有多个用synchronized修饰的同步实例方法，如果多个线程访问这个类的不同对象，那么不同对象的synchronized锁不一样，每个对象的锁只能对访问该对象的线程同步。</li>
+<li>如果采用Lock锁进行同步，一旦Lock锁被一个线程获得，那么被这把锁控制的所有临界区都被上锁，这是所有其他访问这些临界区的线程被阻塞。</li>
+</ul>
+<ol start="6">
+<li>总结与思考</li>
+</ol>
+<ul>
+<li>如果采用synchronized关键字对类 A的实例方法进行同步控制，这时等价于synchronized(this){ }</li>
+<li>一旦一个线程进入类A的对象o的synchronized实例方法，对象o被加锁，对象o所有的synchronized实例方法都被锁住，从而阻塞了要访问对象o的synchronized实例方法的线程，但是与访问A类其它对象的线程无关</li>
+<li>如果采用synchronized关键字对类 A的静态方法进行同步控制，这时等价于synchronized(A.class){ }。一旦一个线程进入A的一个静态同步方法，A所有的静态同步方法都被锁（这个锁是类级别的锁），这个锁对所有访问该类静态同步方法的线程有效，不管这些线程是通过类名访问静态同步方法还是通过不同的对象访问静态同步方法。</li>
+<li>如果通过Lock对象进行同步，首先看Lock对象对哪些临界区上锁，一旦Lock锁被一个线程获得，那么被这把锁控制的所有临界区都被上锁（如场景3）；另外要区分Lock对象本身是否是不同的：不同的Lock对象能阻塞的线程是不一样的（如场景4）。</li>
+</ul>
+<ol start="7">
+<li>线程同步</li>
+</ol>
+<ul>
+<li>线程之间的相互协作：可通过Condition对象的await/signal/signalAll来完成</li>
+<li>Condition (条件)对象是通过调用Lock实例的newCondition( )方法而创建的对象，Condition对象可以用于协调线程之间的交互（使用条件实现线程间通信）</li>
+<li>一旦创建了条件对象condition，就可以通过调用condition.await()使当前线程进入等待状态,其它线程通过同一个条件对象调用signal和signalAll()方法来唤醒等待的线程，从而实现线程之间的相互协作</li>
+<li>锁和条件是Java 5中的新内容，在Java 5之前，线程通信是使用对象的内置监视器（Object类的wait/signal/signalAll）编程实现<br>锁和条件比内置监视器更加强大且灵活，因此无须使用内置监视器，但要注意遗留代码中的内置监视器</li>
+</ul>
+<ol start="8">
+<li>信号量<br>信号量用来限制访问一个共享资源的线程数，是一个有计数器的锁<br>访问资源之前，线程必须从信号量获取许可<br>访问完资源之后，该线程必须将许可返回给信号量<br>为了创建信号量，必须确定许可的数量（计数器最大值），同时可选用公平策略<br>任务通过调用信号量的acquire()方法来获得许可，信号量中可用许可的总数减1<br>任务通过调用信号量的release()方法来释放许可，信号量中可用许可的总数加1  </li>
+<li>死锁避免<br>避免死锁：可以采用正确的资源排序来避免死锁<br>给每一个需要上锁的对象指定一个顺序<br>确保每个线程都按这个顺序来获取锁  </li>
+<li>同步集合<br>Java集合框架 包括：List 、Set 、Map接口及其具体子类，都不是线程安全的。<br>集合框架中的类不是线程安全的， 可通过为访问集合的代码临界区加锁或者同步等方式来保护集合中的数据<br>Collections类提供6个静态方法来将集合转成同步版本（即线程安全的版本）<br><img src="../src/Collections%E6%96%B9%E6%B3%95.png" alt=""><br>这些同步版本的类都是线程安全的，但是迭代器不是，因此使用迭代器时必须同步：synchronized(要迭代的集合对象）{ // 迭代}  </li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/12/JAVA%E5%9F%BA%E7%A1%80%E4%B9%8BFile%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alion">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alion">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/12/JAVA%E5%9F%BA%E7%A1%80%E4%B9%8BFile%E7%B1%BB/" itemprop="url">JAVA基础之File类</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-12T16:37:21+08:00">
+                2020-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这篇文章记录File类的相关用法。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>JDK 13上面说是：An abstract representation of file and directory pathnames. 即文件和目录路径名的抽象表示。<br>主要用于文件、目录的创建、查找和删除等操作。</p>
+<h3 id="File类中的静态常量"><a href="#File类中的静态常量" class="headerlink" title="File类中的静态常量"></a>File类中的静态常量</h3><ul>
+<li>pathSeparator：系统相关的路径分隔符，为方便起见，以字符串形式表示。</li>
+<li>pathSeparatorChar：系统相关的路径分隔符。</li>
+<li>separator：系统相关的默认名称分隔符，为方便起见，以字符串形式表示。</li>
+<li>separatorChar：取决于系统的默认名称分隔符。<br>一个是单个路径中文件层次目录的分隔符，比如windows中是\，Linux中是/，另一个是多个路径之间的分割符，windows是;，linux是:。然后又分为字符和字符串表示。</li>
+</ul>
+<h3 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h3><ol>
+<li>可以直接传入绝对路径名创建一个File对象，也可以使用相对路径，相对路径默认为当前用户目录来分析相对路径名，此目录由系统属性user.dir指定，通常是Java虚拟机的调用目录，在不同的地方启动会是不同的user.dir，最好使用绝对路径。</li>
+<li>可以使用父级和自己共同创建。</li>
+<li>使用URL进行创建。</li>
+</ol>
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><ol>
+<li>file.getName();</li>
+<li>file.getPath();</li>
+<li>file.createNewFile();</li>
+<li>file.mkdir();</li>
+<li>file.length();</li>
+<li>file.list();  //返回字符串数组</li>
+<li>file.listFiles(); //返回File对象数组</li>
+<li>file.delete();</li>
+<li>file.exists();</li>
+<li>file.isDirectoty();</li>
+<li>file.isFile();</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/11/B%E6%A0%91%E3%80%81B+%E6%A0%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -387,1277 +1760,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/10/SQL%E5%B8%B8%E7%94%A8%E7%94%A8%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alion">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Alion">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/10/SQL%E5%B8%B8%E7%94%A8%E7%94%A8%E6%B3%95/" itemprop="url">SQL常用用法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-10T21:20:27+08:00">
-                2020-04-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这篇文章用来记录一下SQL的一些常用用法。</p>
-<h2 id="SQL用法"><a href="#SQL用法" class="headerlink" title="SQL用法"></a>SQL用法</h2><ul>
-<li>创建模式<ul>
-<li>CREATE SCHEMA &lt;模式名&gt; AUTORIZATION &lt;用户名&gt;</li>
-<li>CREATE SCHEMA AUTORIZATION &lt;用户名&gt;</li>
-</ul>
-</li>
-<li>删除模式<ul>
-<li>DROP SCHEMA &lt;模式名&gt;&lt;CASCADE|RESTRICT&gt; </li>
-</ul>
-</li>
-<li>创建基本表</li>
-<li>基本类型：CHAR、VARCHAR、INT、SMALLINT、BIGINT、REAL、BOOLEAN、DATE、TIME<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> &lt;表名&gt;(&lt;列名&gt;&lt;数据类型&gt;[列级完整性约束],</span><br><span class="line">                    [表级完整性约束])</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Stedent(Sno <span class="built_in">CHAR</span>(<span class="number">9</span>) PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">                    Sname <span class="built_in">CHAR</span>(<span class="built_in">char</span>) <span class="keyword">UNIQUE</span>,</span><br><span class="line">                    Ssex <span class="built_in">CHAR</span>(<span class="number">2</span>),</span><br><span class="line">                    Sage <span class="built_in">SMALLINT</span>,</span><br><span class="line">                    Sdept <span class="built_in">CHAR</span>(<span class="number">20</span>));</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> SC(Sno <span class="built_in">CHAR</span>(<span class="number">9</span>),</span><br><span class="line">                Cno <span class="built_in">CHAR</span>(<span class="number">4</span>),</span><br><span class="line">                GRADE <span class="built_in">SMALLINT</span>,</span><br><span class="line">                PRIMARY <span class="keyword">KEY</span>(Sno, Cno),</span><br><span class="line">                <span class="keyword">FOREIGN</span> <span class="keyword">KEY</span>(Sno) <span class="keyword">REFERENCES</span> Student(Sno),</span><br><span class="line">                <span class="keyword">FOREIGN</span> <span class="keyword">KEY</span>(Cno) <span class="keyword">REFERENCES</span> Course(Cno));</span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> &lt;表名&gt;</span><br><span class="line">[<span class="keyword">ADD</span> [<span class="keyword">COLUMN</span>] &lt;新列名&gt;&lt;数据类型&gt; [完整性约束]]</span><br><span class="line">[<span class="keyword">ADD</span> &lt;完整性表级约束&gt;]</span><br><span class="line">[<span class="keyword">DROP</span> [<span class="keyword">COLUMN</span>] &lt;列名&gt; [<span class="keyword">CASCADE</span>|RESTRICT]]</span><br><span class="line">[<span class="keyword">DROP</span> CONSTRIANT&lt;完整性约束名&gt;[<span class="keyword">CASCADE</span>|RESTRICT]]</span><br><span class="line">[<span class="keyword">ALTER</span> <span class="keyword">COLUMN</span> &lt;列名&gt;&lt;数据类型&gt;]         <span class="comment">--默认restrict</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> &lt;表名&gt; [<span class="keyword">CASCADE</span>|RESTRICT] </span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> [<span class="keyword">UNIQUE</span>][CLUSTER] <span class="keyword">INDEX</span>&lt;索引名&gt;</span><br><span class="line"><span class="keyword">ON</span> &lt;表名&gt;(&lt;列名&gt; [&lt;次序&gt;] [, &lt;列名&gt;[&lt;次序&gt;]]...)</span><br><span class="line"><span class="comment">-- 次序：ASC升序，DESC降序，默认ASC</span></span><br><span class="line"><span class="comment">-- UNIQUE标明此索引的每一个索引值只对应唯一的数据记录</span></span><br><span class="line"><span class="comment">-- CLUSTER表示要建立的是聚簇索引</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">UNIQUE</span> <span class="keyword">INDEX</span> Stosno <span class="keyword">ON</span> Student(Sno);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">UNIQUE</span> <span class="keyword">INDEX</span> SCno <span class="keyword">ON</span> SC(Sno <span class="keyword">ASC</span>, Cno <span class="keyword">DESC</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">INDEX</span> &lt;旧索引名&gt; <span class="keyword">RENAME</span> <span class="keyword">TO</span> &lt;新索引名&gt;;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">INDEX</span> SCno <span class="keyword">RENAME</span> <span class="keyword">TO</span> SCSno;</span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">INDEX</span> &lt;索引名&gt;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">INDEX</span> SCSno;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--SELECT语句的含义：根据WHERE子句的条件表达式从FROM子句指定的基本表、视图或派生表中找出满足条件的元组。再按SELECT子句中的目标列表达式选出元组中的属性值形成结果表。</span></span><br><span class="line"><span class="comment">-- 如果有GROUP BY子句，则将结果按&lt;列名1&gt;的值进行分组，该属性列值相等的元组为一个组。通常会在每个组中作用聚集函数。如果GROUP BY子句带有HAVING短语，则只输出满足指定条件的组才输出。</span></span><br><span class="line"><span class="keyword">SELECT</span> [<span class="keyword">ALL</span>|<span class="keyword">DISTINCT</span>] &lt;目标列表达式&gt;[,&lt;目标列表达式&gt;]...</span><br><span class="line"><span class="keyword">FROM</span> &lt;表名或视图名&gt; [,&lt;表名或视图名...&gt;] | (&lt;<span class="keyword">SELECT</span> 语句&gt;) [<span class="keyword">AS</span>] &lt;别名&gt;</span><br><span class="line">[<span class="keyword">WHERE</span> &lt;条件表达式&gt;]</span><br><span class="line">[<span class="keyword">GROUP</span> <span class="keyword">BY</span> &lt;列名<span class="number">1</span>&gt;[<span class="keyword">HAVING</span>&lt;条件表达式&gt;]]</span><br><span class="line">[<span class="keyword">ORDER</span> <span class="keyword">BY</span> &lt;列名<span class="number">2</span>&gt;[<span class="keyword">ASC</span>|<span class="keyword">DESC</span>]];</span><br><span class="line"><span class="comment">-- SELECT语句目标列表达式可以是表中的属性列、表达式，比如2014-Sage，也可以是字符串常量、函数等</span></span><br><span class="line"><span class="keyword">SELECT</span> Sname <span class="keyword">NAME</span>, <span class="string">'Year of Birth'</span> BIRTH, <span class="number">2014</span>-Sage BIRTHDAY, <span class="keyword">LOWER</span>(Sdept) DEPARTMENT  <span class="keyword">FROM</span> Student;</span><br><span class="line"><span class="comment">-- 可以使用DISTINCT消除重复行</span></span><br></pre></td></tr></table></figure>
-WHERE子句常用查询条件：<img src="../src/WHERE%E5%AD%90%E5%8F%A5%E5%B8%B8%E7%94%A8%E6%9F%A5%E8%AF%A2%E6%9D%A1%E4%BB%B6.png" alt="WHERE子句常用的查询条件"><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 一些例子</span></span><br><span class="line"><span class="keyword">SELECT</span> Sname, Ssex</span><br><span class="line"><span class="keyword">FROM</span> Student</span><br><span class="line"><span class="keyword">WHERE</span> Sdept <span class="keyword">IN</span> (<span class="string">'CS'</span>, <span class="string">'MA'</span>, <span class="string">'IS'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- LIKE可以用来进行字符串的匹配。</span></span><br><span class="line">[NOT] LIKE '&lt;匹配串&gt;' [ESCAPE '&lt;换码字符&gt;']</span><br><span class="line"><span class="comment">-- 可以含有通配符_和%</span></span><br><span class="line"><span class="comment">-- %任意长度字符串，_单个字符</span></span><br><span class="line"><span class="comment">-- 如果匹配字符串含有通配符，就需要ESCAPE</span></span><br><span class="line"><span class="keyword">SELECT</span> Cno, Ccredit</span><br><span class="line"><span class="keyword">FROM</span> Course</span><br><span class="line"><span class="keyword">WHERE</span> Cname <span class="keyword">LIKE</span> <span class="string">'DB\_Design'</span> ESCAPE <span class="string">'\'</span>;</span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 表示'\'为换码字符，匹配串中紧跟在'\'后面的字符'_'不是通配符</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--用户可以用ORDER BY子句对查询结果按照一个或多个属性列的升序(ASC)或降序(DESC)排序，默认为升序,NULL值具体次序取决于具体实现</span></span><br><span class="line"><span class="keyword">SELECT</span> Sno, Grade</span><br><span class="line"><span class="keyword">FROM</span> SC</span><br><span class="line"><span class="keyword">WHERE</span> Cno = <span class="string">'3'</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> Grade <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
-聚集函数：<br><img src="../src/%E8%81%9A%E9%9B%86%E5%87%BD%E6%95%B0.jpg" alt="聚集函数">  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 除了COUNT(*)外，都跳过空值而只处理非空值。并且聚集函数只能作用于SELECT子句和GROUP BY的HAVING子句。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 在等值连接中把重复的属性列去掉则为自然连接。</span></span><br><span class="line"><span class="comment">-- 也可以是一个表与自己进行连接</span></span><br><span class="line"><span class="keyword">SELECT</span> FIRST.Cno, SECOND.Cpno</span><br><span class="line"><span class="keyword">FROM</span> Course <span class="keyword">FIRST</span>, Course <span class="keyword">SECOND</span></span><br><span class="line"><span class="keyword">WHERE</span> FIRST.Cpno=SECOND.Cno;</span><br><span class="line"></span><br><span class="line"><span class="comment">--左右连接</span></span><br><span class="line"><span class="keyword">SELECT</span> Student.Sno,, Sname,Ssex,Sage,Sdept,Cno,Grade</span><br><span class="line"><span class="keyword">FROM</span> Student <span class="keyword">LEFT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> SC <span class="keyword">ON</span>(Student.Sno=SC.Sno);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 嵌套查询分为相关子查询和非相关子查询</span></span><br><span class="line"><span class="keyword">SELECT</span> Sno, Cno</span><br><span class="line"><span class="keyword">FROM</span> SC x</span><br><span class="line"><span class="keyword">WHERE</span> Grade &gt;= (<span class="keyword">SELECT</span> <span class="keyword">AVG</span>(Grade)</span><br><span class="line">                <span class="keyword">FROM</span> SC y</span><br><span class="line">                <span class="keyword">WHERE</span> y.Sno = x.Sno);</span><br><span class="line"><span class="comment">-- 子查询出现在FROM中时，子查询生成的临时表成为主查询的查询对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- SELECT子句生成的是集合，可以使用并UNION、交INTERSECT、差EXCEPT，但集合的个查询结果列数必须相同，数据类型也必须相同。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--插入数据</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span>&lt;表名&gt;[(&lt;属性列<span class="number">1</span>&gt;[,&lt;属性列<span class="number">2</span>&gt;])...]</span><br><span class="line"><span class="keyword">VALUES</span>(&lt;常量<span class="number">1</span>&gt;[,&lt;常量<span class="number">2</span>&gt;]...)</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Student(Sno,Sname,Ssex,Sdept,Sage)</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="string">'201215128'</span>, <span class="string">'陈东'</span>,<span class="string">'男'</span>,<span class="string">'IS'</span>,<span class="number">18</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> &lt;表名&gt;[(&lt;属性列<span class="number">1</span>&gt;[,&lt;属性列<span class="number">2</span>&gt;])...]</span><br><span class="line">子查询;</span><br><span class="line"></span><br><span class="line"><span class="comment">--修改数据</span></span><br><span class="line"><span class="keyword">UPDATE</span> &lt;表名&gt;</span><br><span class="line"><span class="keyword">SET</span> &lt;列名&gt;=&lt;表达式&gt;[,&lt;列名&gt;=&lt;表达式&gt;]...</span><br><span class="line">[<span class="keyword">WHERE</span> &lt;条件&gt;]</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除数据</span></span><br><span class="line"><span class="keyword">DELETE</span></span><br><span class="line"><span class="keyword">FROM</span> &lt;表名&gt;</span><br><span class="line">[<span class="keyword">WHERE</span>&lt;条件&gt;]</span><br><span class="line"><span class="keyword">DELETE</span></span><br><span class="line"><span class="keyword">FROM</span> Student</span><br><span class="line"><span class="keyword">WHERE</span> Sno=<span class="string">'201215128'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> &lt;视图名&gt; [(&lt;列名&gt;)[,&lt;列名&gt;...]]</span><br><span class="line"><span class="keyword">AS</span> &lt;子查询&gt;</span><br><span class="line">[<span class="keyword">WITH</span> <span class="keyword">CHECK</span> <span class="keyword">OPTION</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">VIEW</span>&lt;视图名&gt;[<span class="keyword">CASCADE</span>]</span><br><span class="line"><span class="comment">-- 对视图的增删修改最终转化为基本表的·</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/09/JAVA%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alion">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Alion">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/09/JAVA%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B97/" itemprop="url">Java学习中零碎的知识点7</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-09T10:19:16+08:00">
-                2020-04-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这篇文章主要用来记录学习Java过程中一些比较零碎的知识点。</p>
-<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><ol>
-<li>Iterator接口包含四个方法：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Iterator</span>&lt;<span class="title">E</span>&gt;</span>&#123;</span><br><span class="line">    <span class="function">E <span class="title">next</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="comment">//删除上次调用next方法返回的元素，连续删除两次或者未调用next直接调用remove是</span></span><br><span class="line">    <span class="comment">//不合法的</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span></span>;  </span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">forEachRemaining</span><span class="params">(Consumer&lt;? <span class="keyword">super</span> E&gt; action)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//for-each循环</span></span><br><span class="line"><span class="comment">//for-each循环可以处理任何实现了Iterable接口的对象，这个接口只包含一个抽象方法</span></span><br><span class="line"><span class="comment">//public interface Iterable&lt;E&gt;&#123;Iterator&lt;E&gt; iterator();&#125;</span></span><br><span class="line"><span class="comment">//Collection接口扩展了Iterable接口，所以集合都可以使用for-each循环</span></span><br><span class="line"><span class="keyword">for</span>(String element: c)&#123;</span><br><span class="line">    <span class="keyword">do</span> something with element;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>为了让实现着更容易实现Collection接口，Java类库提供了一个类AbstractCollection，它保持size和iterator方法为抽象方法，实现了其他的例行方法。</li>
-<li>集合类中的接口和类。<br><img src="../src/%E9%9B%86%E5%90%88%E4%B8%AD%E7%9A%84%E6%8E%A5%E5%8F%A3.png" alt="集合中的接口"><br><img src="../src/%E9%9B%86%E5%90%88%E4%B8%AD%E7%9A%84%E7%B1%BB.png" alt="集合中的类"></li>
-<li>List接口用于描述一个有序集合，并且集合中每个元素的位置很重要。有两种访问元素的协议：一种是通过迭代器，另一种是通过get和set方法随机的访问每个元素。</li>
-<li>在java中，所有的链表实际都是双向链表的，即每个链接还存放着其前驱的引用。</li>
-<li>如果一个迭代器发现它的集合被另一个迭代器修改了，或是被该集合自身的某个方法修改了，就会抛出ConcurrentModificationException异常。<br>有一种简单的方法可以检测到并发修改，集合可以跟踪更改操作，每个迭代器为他所负责的更改操作维护一个单独的操作次数，在每个迭代器方法之前，比较两者即可。并发修改的检测有一个奇怪的例外，链表只跟踪结构性修改，set方法不被视为结构性修改。</li>
-<li>在Java中，散列表用链表数组实现，每个列表被称为桶。在java8中，桶满时会从链表变为平衡二叉树。如果大致知道最终会有多少个元素插入到散列表中，就可以设置桶数。通常，将桶数设置为预计元素的75%~150%，标准类库使用的桶数是2的幂，默认值为16.装填因子可以确定何时对散列表进行再散列。例如，如果装填因子为0.75（默认值），说明表中已经填满了75%以上，会自动再散列，新表的桶数是原来的两倍，对于大多数应用来说，装填因子为0.75是合理的。</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/09/JAVA%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B96/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alion">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Alion">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/09/JAVA%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B96/" itemprop="url">Java学习中零碎的知识点6</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-09T00:03:33+08:00">
-                2020-04-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这篇文章主要用来记录学习Java过程中一些比较零碎的知识点。</p>
-<h2 id="泛型程序设计"><a href="#泛型程序设计" class="headerlink" title="泛型程序设计"></a>泛型程序设计</h2><ol>
-<li>泛型程序设计意味着编写的代码可以对多种不同类型的对象重用。泛型参数可以让程序更已读，更安全。</li>
-<li>泛型类就是有一个或者多个类型变量的类。泛型方法的类型变量要放在修饰符后面，并在返回类型之前。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArrayAlg</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span>&lt;T&gt; T <span class="title">getMiddle</span><span class="params">(T...a)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a[a.length / <span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">String middle ArrayAlg.&lt;String&gt;getMiddle(<span class="string">"John"</span>, <span class="string">"Q."</span>, <span class="string">"Public"</span>);</span><br></pre></td></tr></table></figure></li>
-<li>一个类型变量或通配符可以有多个限定。<code>T extends Comparable &amp; Serializable</code>，限定类型用”&amp;”分离，而逗号用来分割类型变量。</li>
-<li>在Java的继承中，可以根据需要拥有多个接口超类型，但最多有一个限定可以是类。如果有一个类作为限定，他必须是限定列表中的第一个限定。</li>
-<li><strong>Java的泛型是通过类型擦除来实现的，无论何时定义一个泛型类型，都会自动提供一个相应的原始类型，这个原始类型的名字就是去掉类型参数后的泛型类型名字。类型变量会被擦除并替换为其第一个限定类型（无限制的则会替换为Object）。</strong></li>
-<li>在编写一个泛型方法调用时，如果擦除了返回类型，编译器会插入强制类型转换。</li>
-<li>Java中泛型的几个事实：<ul>
-<li>虚拟机中没有泛型，只有普通的类和方法。</li>
-<li>所有的类型参数都会替换为他们的限定类型。</li>
-<li>会合成桥方法来保持多态。</li>
-<li>为保持类型安全，会在必要时插入强制类型转换。</li>
-</ul>
-</li>
-<li>使用泛型的一些限制:<ul>
-<li>不能基本类型实例化类型参数。</li>
-<li>运行时类型查询只适用于原始类型。</li>
-<li>不能创建参数化类型的数组。</li>
-<li>向参数可变的方法传递一个泛型类型的实例，会得到一个Varargs警告。</li>
-<li>泛型类在静态上下文中类型变量无效。- 不能抛出或捕获泛型类的实例。</li>
-<li>可以取消对检查型异常的检查。</li>
-<li>注意擦除后的冲突。 </li>
-</ul>
-</li>
-<li>反射允许你在运行时分析任意对象。在Java中每个类对应一个Class对象，保存着类的信息。可以先通过getConstructor(Class…parameterTypes)，然后newInstance即可创建一个相应的对象。</li>
-<li>java.lang.reflect包中的接口Type，包含泛型的信息，包括具体描述类型、类型变量等变量。</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/08/JAVA%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alion">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Alion">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/08/JAVA%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B95/" itemprop="url">Java学习中零碎的知识点5</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-08T01:04:00+08:00">
-                2020-04-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这篇文章主要用来记录学习Java过程中一些比较零碎的知识点。</p>
-<h2 id="异常、断言和日志"><a href="#异常、断言和日志" class="headerlink" title="异常、断言和日志"></a>异常、断言和日志</h2><ol>
-<li>在JAVA中，所有的异常对象都是派生于Throwable类的一个实例。Trowable类有两个子类，一个是ERROR，另一个是EXCEPTION，ERROR类层次结构描述了JAVA运行时系统的内部错误和资源耗尽错误。EXCEPTION层次也有两个分支，一个是RUNTIMEEXCEPTION，然后是其他异常。一般的规则是：由编程错误导致的异常属于RUNTIMEEXCEPTION，如果程序没有问题，但由于像I/O错误这类问题导致的异常属于其他异常。<br>派生于RUNTIMEEXCEPTION的异常通常包含以下问题：</li>
-</ol>
-<ul>
-<li>错误的强制类型转换。</li>
-<li>数组访问越界。</li>
-<li>访问null指针。<br>不是派生于RUNTIMEEXCEPTION的异常包括：</li>
-<li>驶入超越文件尾继续读取数据。</li>
-<li>试图打开一个不存在的文件。</li>
-<li>试图根据给定的字符串查找Class对象，而这个字符串表示得类不存在。<br>即如果出现RUNTIMEEXCEPTION异常，那么一定是程序员的错误。</li>
-</ul>
-<ol start="2">
-<li>自定义异常通常要包含两个构造器，一个是默认的构造器，另一个是包含详细描述信息的构造器。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FileFormatException</span> <span class="keyword">extends</span> <span class="title">IOException</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FileFormatException</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FileFormatException</span><span class="params">(String gripe)</span></span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(gripe);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>一般我们要捕获我们知道如何处理的异常，而继续传播那些不知道怎么处理的异常类。</li>
-<li>如果一个类实现了AutoCloseable接口的类，可以使用try-with-resources语句<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>(Resource res = ...)&#123;</span><br><span class="line">    work with res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//下面是一个例子</span></span><br><span class="line"><span class="keyword">try</span>(<span class="keyword">var</span> in = <span class="keyword">new</span> Scanner(<span class="keyword">new</span> FilrInputStream(<span class="string">"/usr/share/dict/words"</span>, StandardCharacters.UTF_8);</span><br><span class="line">    <span class="keyword">var</span> out = <span class="keyword">new</span> PrintWriter(<span class="string">"out.txt"</span>, StandardCharaters.UTF_8)))&#123;</span><br><span class="line">        <span class="keyword">while</span>(in.hasNext())&#123;</span><br><span class="line">            out.println(in.next(),toUpperCase());</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>断言机制允许在测试期间向代码中插入一些检查，而在生产代码中会自动删除这些检查。<br>一共有两种形式：</li>
-</ol>
-<ul>
-<li>assert condition</li>
-<li>assert condition : expression<br>这两个语句都会计算条件，如果结果为false，这抛出一个AssertionERROR异常。在第二个语句中，表达式将传入AssertionError对象的构造器，并转换成一个消息字符串。</li>
-</ul>
-<ol start="6">
-<li>默认情况下断言是禁止的。在运行程序的时候用 -enableassertions或-ea选项启动断言，<code>java -enableassertion MyApp</code>,<strong>不必重新编译程序来启动或者禁用断言，启用或禁用断言是类加载器的功能。禁用断言的时候，类加载器会去除断言代码，因此不会降低程序运行的速度。</strong></li>
-<li>什么时候可以使用断言？</li>
-</ol>
-<ul>
-<li>断言失败是致命的、不可恢复的错误。</li>
-<li>断言检查只是在开发和测试阶段代开。</li>
-</ul>
-<ol start="8">
-<li>使用日志API的一些简单优点。</li>
-</ol>
-<ul>
-<li>可以很容易的取消全部日志记录，或者仅仅取消某个级别以下的日志，而且可以很容易的再次打开日志记录。</li>
-<li>可以很简单的禁止日志记录，因此，将这些日志代码留在程序中的开销很小。</li>
-<li>日志记录可以被定向到不同的处理器，如在控制台显示，写至文件等等。</li>
-<li>日志记录器和处理器都可以对记录进行过滤。过滤器可以根据过滤器实现指定的标准丢弃那些无用的记录项。</li>
-<li>日志记录可以采用不同的方式进行格式化，比如纯文本和XML。</li>
-<li>应用程序可以使用多个日志记录器，他们使用与包名类似的有层次结构的名字，比如com.mycompany.myapp。</li>
-<li>日志系统的配置由配置文件控制。</li>
-</ul>
-<ol start="9">
-<li>在java实验中尝试使用日志。</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/08/JAVA%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B94/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alion">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Alion">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/08/JAVA%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B94/" itemprop="url">Java学习中零碎的知识点4</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-08T00:02:50+08:00">
-                2020-04-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这篇文章主要用来记录学习Java过程中一些比较零碎的知识点。</p>
-<h2 id="接口、lambda表达式与内部类"><a href="#接口、lambda表达式与内部类" class="headerlink" title="接口、lambda表达式与内部类"></a>接口、lambda表达式与内部类</h2><ol>
-<li>接口用来描述类应该做什么，而不指定他们应该如何做。一个类可以实现一个或多个接口。</li>
-<li>接口中所有的方法都是public的，变量都是静态公有常量。</li>
-<li>Comparable接口、Cloneable接口。</li>
-<li>Java8中，允许在接口中增加了静态方法。Java9中接口中的方法可以是private，private方法可以是静态方法或者实例方法。也可以为接口方法提供一个默认实现，必须用default修饰符标记这样一个方法，默认方法的一个重要方法是“接口演化”。在接口中增加静态方法有违接口设计的初衷，所以现在的做法都是将静态方法放在伴随类中，如Collection/Collections、Path/Paths。</li>
-<li>解决默认方法冲突：<ul>
-<li>超类优先。</li>
-<li>接口冲突的时候，必须进行覆盖。</li>
-</ul>
-</li>
-<li>一种程序设计模式：回调。指定某个特定事件发生时应该采取的动作。</li>
-<li>如果我们按照字典序进行排序的话，直接调用Array.sort即可，但当我们想按照长度或者其他方面进行比较的话，可以使用Array.sort的另一个版本，提供一个数组和比较器，比较器是实现了Comparator接口类的实例<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Comparator</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">compare</span><span class="params">(T first, T second)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>lambda表达式就是一个代码块，以及必须传入代码的变量规范。<br> lambda表达式的形式 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(String first, String second)-&gt;&#123;</span><br><span class="line">    <span class="keyword">if</span>(first.length() &lt; second.length())    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(first.length() &gt; second.length())   <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//如果lambda表达式没有参数，仍然要提供空括号。</span></span><br><span class="line">()-&gt;&#123;<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">100</span>; i &gt;= <span class="number">0</span>; i--) System.out.println(i);&#125;</span><br><span class="line"><span class="comment">//如果一个方法只有一个参数，并且这个参数的类型可以推导的出，那么甚至还可以省略小括号</span></span><br><span class="line">ActionListener listener = event -&gt; System.out.println(<span class="string">"The time is "</span> + Instant.ofEpochMilli(event.getWhen()));</span><br></pre></td></tr></table></figure></li>
-<li>对于只有一个抽象方法的接口，需要这种接口的对象时，就可以提供一个lambda表达式。这种接口称为函数式接口。实际上，在Java中，对lambda表达式所能做的事情也就是转换为函数式接口。<br>有时，lambda表达式涉及一个方法<pre><code class="JAVA"><span class="keyword">var</span> timer = <span class="keyword">new</span> Timer(<span class="number">1000</span>, System.out::println);</code></pre>
-表达式System.out::println是一个方法引用，它指示编译器生成一个函数式接口的实例，覆盖这个接口的抽象方法给定的方法。<br>注意只有当lambda表达式的体只调用一个方法而不做其他操作时，才能把lambda表达式重写为方法引用。<br>关于代码块以及自由变量值有一个术语：闭包。</li>
-<li>内部类的概念：内部类是定义在另一个类中的类。<ul>
-<li>内部类可以对同一个包中的其他类隐藏。</li>
-<li>内部类方法可以访问定义这个类的作用域中的数据，包括原本私有的数据。</li>
-</ul>
-</li>
-<li>利用代理可以在运行时创建实现了一组给定接口的新类。Proxy类。</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/07/JAVA%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alion">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Alion">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/07/JAVA%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B93/" itemprop="url">Java学习中零碎的知识点3</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-07T13:19:06+08:00">
-                2020-04-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这篇文章主要用来记录学习Java过程中一些比较零碎的知识点。</p>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><ol>
-<li>继承的基本思想是基于已有的类创建新的类。</li>
-<li>反射是指在程序运行期间更多的了解类及其属性的能力。</li>
-<li>如果一个方法是private、static、final方法或者是构造器，那么编译器将可以准确的知道应该调用哪个方法，这成为静态绑定。其他的方法都是动态绑定的。</li>
-<li>在覆盖一个方法的时候，子类方法不能低于超类方法的可见性。</li>
-<li>String类的equals方法： <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> hash = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length(); i++)&#123;</span><br><span class="line">    hash = hash*<span class="number">31</span> + charAt(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
- Object类中的equals方法是根据对象的地址计算出来的。</li>
-<li>只要一个对象通过+与字符串连接起来，Java编译器就自动调用toString方法，使用System.out.printf打印一个对象的时候，也会自动调用toString方法。</li>
-<li>反射机制的几个用处：<ul>
-<li>在运行时分析类的能力。</li>
-<li>在运行时检查对象。</li>
-<li>实现泛型数组操作代码。</li>
-<li>利用Method对象、Constructor对象等。</li>
-</ul>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/07/JAVA%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B92/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alion">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Alion">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/07/JAVA%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B92/" itemprop="url">Java学习中零碎的知识点2</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-07T11:14:21+08:00">
-                2020-04-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这篇文章主要用来记录学习Java过程中一些比较零碎的知识点。</p>
-<h2 id="对象与类"><a href="#对象与类" class="headerlink" title="对象与类"></a>对象与类</h2><ol>
-<li>类之间的关系：<ul>
-<li>依赖(uses-a)，如果一个类的方法使用或操纵另一个类的对象，我们就说一个类依赖另一个类。</li>
-<li>聚合(has-a),如果类a包含b，我们就说是聚合。<br>表达类之间关系的UML图：<br><img src="../src/%E8%A1%A8%E8%BE%BE%E7%B1%BB%E4%B9%8B%E9%97%B4%E5%85%B3%E7%B3%BB%E7%9A%84UML%E5%9B%BE.png" alt="表达类之间关系的UML图"></li>
-</ul>
-</li>
-<li>表示日期的Date类和LocalDate类。</li>
-<li>在Java10中，如果可以从变量的初始值推导出他们的类型，那么可以用var来声明变量，而无需指定类型。但要注意的是var关键字只能用于方法中的局部变量。参数和字段的类型必须声明。</li>
-<li>出现NULLPOINTEREXCEPTION的时候，一般为使用了空指针null并使用方法的原因。</li>
-<li>尽量不要使用finalize方法来完成清理，这个方法原本要在垃圾回收期清理对象前调用。但无法确定垃圾回收的时机，并且该方法已经被废弃。</li>
-<li>JAR使用ZIP格式组织文件和子目录。可以使用任何ZIP工具查看JAR格式文件。</li>
-<li>JAVA的文档注释doc，注释以/<em>\</em>开始，以*/结束，中间是自由格式文本，自由格式文本的第一句应该是一个概要性的句子。Javadoc工具自动的将这些句子抽取出来生成概要页。在自由格式文本中可以使用HTML修饰符，也可以使用标记，以@开始。</li>
-<li>包注释<ul>
-<li>提供一个名为package-info.java的Java文件，这个文件必须包含一个初始的以/<em>\</em>和*/为界定的Javadoc注释，后面是一个package语句，他不能包含更多的代码或注释。</li>
-<li>提供一个名为package.html的文件，会抽取标记<body>……</body>之间的所有文本。</li>
-</ul>
-</li>
-<li>类设计的一些技巧<ul>
-<li>一定要保证数据私有。</li>
-<li>一定要对数据进行初始化。</li>
-<li>不要在类中使用过多的基本类型。</li>
-<li>是不所有的字段都需要单独的字段访问器和字段更改器。</li>
-<li>分解过多职责的类。</li>
-<li>类名和方法名要能够体现他们的作用。</li>
-<li>优先使用不可变的类(多线程的时候)。</li>
-</ul>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/06/JAVA%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alion">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Alion">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/06/JAVA%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B91/" itemprop="url">Java学习中零碎的知识点1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-06T13:52:08+08:00">
-                2020-04-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这篇文章主要用来记录学习Java过程中一些比较零碎的知识点。</p>
-<h2 id="Java的基本程序设计结构"><a href="#Java的基本程序设计结构" class="headerlink" title="Java的基本程序设计结构"></a>Java的基本程序设计结构</h2><ol>
-<li>Java中Unicode转义序列会放生在解析代码之前得到处理，比如”\u0022+\u0022”会变为””+””。</li>
-<li>定义并使用枚举类型 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Size &#123;SMALL, MEDIUM, LARGE, EXTERN_LARGE&#125;;</span><br><span class="line">Size s = Size.MEDIUM;</span><br></pre></td></tr></table></figure></li>
-<li>Java中数值类型之间的合法转换<br><img src="../src/%E6%95%B0%E5%80%BC%E7%B1%BB%E5%9E%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E5%90%88%E6%B3%95%E8%BD%AC%E6%8D%A2.png" alt="数值类型之间的合法转换"><br>上面是Java基本类型之间的合法转换，<strong>boolean类型与int类型之间无法转换</strong>，实心箭头代表无信息丢失，<strong>注意int转换成double类型无信息丢失</strong>。<br>当一个二元运算符连接两个值的时候，JAVA的计算规则是：<ul>
-<li>如果两个操作数中有一个是double类型的话，另一个操作数转换成double类型。</li>
-<li>否则，如果其中一个是float类型的话，另一个操作数转换成float类型。</li>
-<li>否则，如果其中一个是long类型的话，另一个操作数转换成long类型。</li>
-<li>否则，两个操作数都将转换成int。</li>
-</ul>
-</li>
-<li>当位运算符作用到boolean类型的时候，不采用短路运算符，即两边的表达式都会进行求值操作。<br>&gt;&gt;&gt;代表用0填充高位，&gt;&gt;代表用符号位填充高位，不存在&lt;&lt;&lt;运算符。</li>
-<li>String和StringBuilder常用API</li>
-<li>Scanner的常用API，Java可以通过printf格式化输出，也可以通过String.format创建格式化字符串。</li>
-<li>文件的读写的一种方式：<ul>
-<li>Scanner in = new Scanner(Path.of(“myfile.txt”, StandardCharsets.UTF-8));然后可以使用in读入。</li>
-<li>PrintWriter out = new PrintWriter(“myf<br>ilr.txt”, StandardCharsets.UTF-8);然后像使用System.out一样使用即可。</li>
-</ul>
-</li>
-<li>Java中的break和continue可以带标签。</li>
-<li>BigInteger、BigDecimal和Arrays类的使用。</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/06/Unicode%E5%92%8CJAVA%E7%9A%84char/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alion">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Alion">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/06/Unicode%E5%92%8CJAVA%E7%9A%84char/" itemprop="url">Java中的char和Unicode字符集及编码的联系</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-06T12:51:09+08:00">
-                2020-04-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这篇文章主要记录Unicode字符集及编码方式和Java中的char类型的联系，这里仅仅是一个大概，更加详细的内容请自行搜索。</p>
-<h2 id="Unicode字符集及编码"><a href="#Unicode字符集及编码" class="headerlink" title="Unicode字符集及编码"></a>Unicode字符集及编码</h2><h3 id="Unicode字符集的由来"><a href="#Unicode字符集的由来" class="headerlink" title="Unicode字符集的由来"></a>Unicode字符集的由来</h3><p>Unicode编码是一个全球统一的通用字符集，它为每个字符提供一个唯一的编号，旨在支持世界各地的交流。<br>最开始的时候是通过两个字节，即16位bit来容纳所有的字符的，但在加入大量的汉语、日语等表意文字之后，16位的Unicode不足以满足描述所有Unicode字符的需要了。<br>Unicode通过U+紧跟着十六进制数表示，现在的Unicode编码分为17个平面，每个平面有 216=65536 个码点，<strong>码点是指与一个编码表中某个字符对应的代码值，比如U+0041就是字母A的代码值</strong>，第一个代码平面称为基本多语言平面，收集了使用最广泛的字符，代码从U+0000到U+FFFF，剩余的16个平面的码点从U+10000到U+10FFFF。</p>
-<h3 id="Unicode编码"><a href="#Unicode编码" class="headerlink" title="Unicode编码"></a>Unicode编码</h3><h4 id="这里仅仅介绍UTF-8和UTF-16"><a href="#这里仅仅介绍UTF-8和UTF-16" class="headerlink" title="这里仅仅介绍UTF-8和UTF-16"></a>这里仅仅介绍UTF-8和UTF-16</h4><p>UTF-16是最早的Unicode字符集编码方式，通过不同长度的编码来表示所有Unicode码点。在UTF-16中，这16位字符称为一个代码单元，UTF-16通过不同数量的代码单元来代表一个码点，比如码点为U+1D546的字符，用UTF-16编码为两个代码单元U+D835和U+DD46。 </p>
-<h4 id="上面的分割是怎么实现的呢？"><a href="#上面的分割是怎么实现的呢？" class="headerlink" title="上面的分割是怎么实现的呢？"></a>上面的分割是怎么实现的呢？</h4><p>这是因为在基本多平面中(即U+0000到U+FFFF中)，有一部分代码单元是用来作为辅助字符的，比如U+D800~U+DBFF表明是第一个代码单元，U+DC00~U+DFFF用于第二个代码单元。这样我们就可以从中迅速的知道一个代码单元是一个字符的编码，还是一个辅助字符的第一或第二部分。  </p>
-<p>UTF-8是目前应用最广泛的Unicode编码方式。UTF-8也是一种变长的编码方式，一般通过1-4个字节序来表示Unicode字符。</p>
-<h3 id="JAVA中的Char"><a href="#JAVA中的Char" class="headerlink" title="JAVA中的Char"></a>JAVA中的Char</h3><p>在Java中，char类型描述了UTF-16编码中的一个代码单元。如果没有必要，我们尽量不要使用char类型。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+  </nav>
+
 
 
           </div>
@@ -1701,7 +1810,7 @@ WHERE子句常用查询条件：<img src="../src/WHERE%E5%AD%90%E5%8F%A5%E5%B8%B
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="这篇文章主要用来记录学习Java过程中一些比较零碎的知识点。 并发编程的艺术并发执行的速度并不一定比串行快并发：一个处理器同时处理多个任务。并行：多个处理器或者是多核的处理器同时处理多个不同的任务。 原因是因为线程的创建和上下文切换有开销。 减少上下文切换的方式有无锁并发编程、CAS算法、使用最少线程和使用协程 CAS算法：即Compare And Swap(比较与交换),是一种无锁算法，能够在不">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java并发编程的艺术">
+<meta property="og:url" content="http://yoursite.com/2020/05/06/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E8%89%BA%E6%9C%AF/index.html">
+<meta property="og:site_name" content="Alion">
+<meta property="og:description" content="这篇文章主要用来记录学习Java过程中一些比较零碎的知识点。 并发编程的艺术并发执行的速度并不一定比串行快并发：一个处理器同时处理多个任务。并行：多个处理器或者是多核的处理器同时处理多个不同的任务。 原因是因为线程的创建和上下文切换有开销。 减少上下文切换的方式有无锁并发编程、CAS算法、使用最少线程和使用协程 CAS算法：即Compare And Swap(比较与交换),是一种无锁算法，能够在不">
+<meta property="og:image" content="http://yoursite.com/2020/05/06/src/Java%E9%94%81.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/06/src/Java%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/06/src/%E7%AD%89%E5%BE%85_%E9%80%9A%E7%9F%A5.png">
+<meta property="article:published_time" content="2020-05-06T15:07:49.157Z">
+<meta property="article:modified_time" content="2020-05-11T03:16:04.033Z">
+<meta property="article:author" content="Alion">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/06/src/Java%E9%94%81.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/05/06/Java并发编程的艺术/Java并发编程艺术/"/>
+
+
+
+
+
+  <title>Java并发编程的艺术 | Alion</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Alion</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不论成功还是失败，都是系于自己</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/06/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E8%89%BA%E6%9C%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alion">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alion">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java并发编程的艺术</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-06T23:07:49+08:00">
+                2020-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这篇文章主要用来记录学习Java过程中一些比较零碎的知识点。</p>
+<h2 id="并发编程的艺术"><a href="#并发编程的艺术" class="headerlink" title="并发编程的艺术"></a>并发编程的艺术</h2><h3 id="并发执行的速度并不一定比串行快"><a href="#并发执行的速度并不一定比串行快" class="headerlink" title="并发执行的速度并不一定比串行快"></a>并发执行的速度并不一定比串行快</h3><p>并发：一个处理器同时处理多个任务。<br>并行：多个处理器或者是多核的处理器同时处理多个不同的任务。</p>
+<p>原因是因为线程的创建和上下文切换有开销。</p>
+<h3 id="减少上下文切换的方式有无锁并发编程、CAS算法、使用最少线程和使用协程"><a href="#减少上下文切换的方式有无锁并发编程、CAS算法、使用最少线程和使用协程" class="headerlink" title="减少上下文切换的方式有无锁并发编程、CAS算法、使用最少线程和使用协程"></a>减少上下文切换的方式有无锁并发编程、CAS算法、使用最少线程和使用协程</h3><ol>
+<li>CAS算法：即Compare And Swap(比较与交换),是一种无锁算法，能够在不使用锁的情况下实现多线程之间的变量同步。<br>jdk中的java.util.concurrent.atomic包中的原子类就是通过CAS来实现乐观锁。</li>
+<li>CSA算法涉及3个操作数：</li>
+</ol>
+<ul>
+<li>需要读写的内存位置V</li>
+<li>需要进行比较的预期值A</li>
+<li>需要写入的新值U</li>
+</ul>
+<ol start="3">
+<li>CAS会有如下两个方面的问题</li>
+</ol>
+<ul>
+<li>ABA问题：一个线程将变量从A改为B，另一个线程又从B改回到A。可以通过加时间标或者版本号来解决。</li>
+<li>循环时间长开销大：CAS算法需要不断通过自旋读取最新的内存值，长时间读取不到就会造成不必要的CPU开销。</li>
+<li>只能保证一个共享变量的原子操作。<br>对象的原子性可以通过将多个变量放到一个对象中进行CAS操作。</li>
+</ul>
+<ol start="4">
+<li>进程与线程、协程<ul>
+<li>进程是资源分配的最小单位，线程是程序执行的最小单位。</li>
+<li>进程有自己的独立地址空间，每启动一个进程，系统就为他分配地址空间，建立数据表来维护代码段、堆栈段和数据段。这种操作开销很大。线程共享进程的数据，使用相同的地址空间，因此CPU切换一个线程的花费远比进程小很多，同时创建一个线程的开销也比进程小很多。</li>
+<li>线程之间的通信更方便，同一进程下的线程共享全局变量、静态变量等数据，进程间的通信就复杂一些。不过如何处理好同步和互斥是编写多线程程序的难点。</li>
+<li>多进程程序更健壮，多线程程序只要有一个线程死掉，整个进程也就死掉了，而一个进程四点并不会对另一个进程造成影响，因为进程有自己独立的地址空间。</li>
+<li>线程共享：进程代码段、进程的公有数据，利用公有数据可以很容易的进行通信，进程打开的文件描述符、信号处理器、进程的当前目录和进程用户ID与进程ID。</li>
+<li><strong>线程独有：自己的运行时栈（保存运行状态和局部自动变量）、程序计数器。</strong></li>
+</ul>
+</li>
+</ol>
+<h3 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h3><p>在多处理器开发中保证了共享变量的“可见性”，可见性的意思是当一个线程修改一个共享变量的时候，另外一个线程能读到这个修改的值。<br>在Intel的处理器上面，编译成汇编指令的时候用volatile修饰的变量最后会多出一条lock指令，这个指令有两个作用，一是将当前处理器缓冲行的数据写回到内存，二是这个会使内存的操作会使其他CPU里缓存了该内存地址的数据无效。</p>
+<h3 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h3><p>Java中每个对象都可以作为锁，具体表现为三种形式：</p>
+<ul>
+<li>对于普通同步方法，锁是当前实例对象<br><code>public synchronized void doLongTimeTaskC() {}</code></li>
+<li>对于静态同步方法，锁是当前类的Class对象<br><code>public synchronized static void doLongTimeTaskA() {}</code></li>
+<li>对于同步方法块，锁是Synchronized括号里配置的对象，可以是实例对象，也可以是CLass对象。  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doLongTimeTaskD</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doLongTimeTaskE</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">synchronized</span> (Task<span class="class">.<span class="keyword">class</span>) </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+synchronized使用的锁是存在Java对象头里面的，对象头里有特定的位来表示不同的锁，锁的级别从低到高可以分为无锁、偏向锁、轻量级锁和重量级锁这四种状态，锁可以升级但不可以降级，目的是提高获得锁和释放锁的效率。<br>偏向锁主要适用与只有一个线程访问同步块的情况：当一个线程访问同步块并获取锁时，会在对象头和栈帧中的锁记录里存储锁偏向的线程ID，以后该线程在进入和退出同步块时不需要进行CAS操作来加锁和解锁，只需要简单的测试一下对象头的MarkWord里是否存储着指向当前线程的偏向锁，如果测试成功，表示线程已经获得了锁。如果测试失败，需要再测试一下MarkWord中偏向锁的标识是否设置为1，如果没有设置使用CAS竞争锁，如果设置了，尝试使用CAS将对象头的偏向锁指向当前线程。<br><img src="../../src/Java%E9%94%81.png" alt="Java锁"></li>
+</ul>
+<p><strong>Java中可以通过锁或者循环CAS的方式实现原子操作。</strong><br>处理器保证原子性的方式：适用总线锁或者缓存锁。</p>
+<h3 id="Java并发编程艺术"><a href="#Java并发编程艺术" class="headerlink" title="Java并发编程艺术"></a>Java并发编程艺术</h3><p>一个Java程序的运行不仅仅是main方法的运行，而是main线程和多个其他线程的同时运行。<br>现代操作系统都采用时分的形式调度运行的线程，在Java线程中，通过一个整型变量priority来控制优先级，优先级范围从1~10，默认优先级是5，但CPU可以忽略Java的优先级设置，所以程序正确性不能依赖线程的优先级高低。  </p>
+<h5 id="Java线程状态"><a href="#Java线程状态" class="headerlink" title="Java线程状态"></a>Java线程状态</h5><p><img src="../../src/Java%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81.png" alt="Java线程状态"></p>
+<p>Daemon线程：一种支持型线程，因为它主要被用作程序中后台调度以及支持性工作，当一个Java虚拟机中不存在非Daemon线程的时候，Java虚拟机将会退出，值得注意的是Daemon中的finally块并不一定会执行。<br>线程的很多属性都是基于父线程的。<br>Thread中的suspend()、resume()、stop()等函数都是过时的，不推荐使用。<br>Java支持多个线程同时访问一个对象或者对象的成员变量，由于每个线程可以拥有这个变量的拷贝(虽然对象以及成员变量分配的内存是在共享内存中，但是每个执行的线程还是可以拥有一个拷贝，这样做的目的是加速程序的执行，这是现代多核处理器的一个显著的特性)，所以程序在执行过程中，一个线程看到的变量并不一定是最新的。<br>关键字volatile可以用来修饰字段(成员变量)，就是告知程序任何对该变量的访问均需要从共享内存中获取，而对他的改变必须同步刷新回共享内存，它能保证所有线程对变量访问的可见性。  </p>
+<p>用synchronized修饰的同步块是通过获取monitor来实现的，每个对象都有一个都有一个监视器monitor。  </p>
+<h5 id="等待-通知机制"><a href="#等待-通知机制" class="headerlink" title="等待/通知机制"></a>等待/通知机制</h5><p><img src="../../src/%E7%AD%89%E5%BE%85_%E9%80%9A%E7%9F%A5.png" alt="等待_通知"><br>等待/通知机制，是指一个线程A调用了O的wait()方法进入等待状态，而另一个线程B调用了对象O的notify()或者notifyAll()方法，线程A收到通知后从对象O的wait()方法返回，进而执行后续操作。  </p>
+<ol>
+<li>使用wait()、notify()和notifyAll()时需要先对调用对象加锁。</li>
+<li>调用wait()方法后，线程状态有RUNNING变为WAITING，并将当前线程放置到对象的等待状态。</li>
+<li>notify()或notifyAll()方法调用后，等待线程依旧不会从wait()返回，需要调用notify()或notifyAll()的线程释放锁之后，等待线程才有机会从wait()返回。</li>
+<li>notify()方法将等待队列中的一个等待线程从等待队列中移动到同步队列中，而notifyAll()方法则是将等待队列中所有的线程全部移动到同步队列，被移动的线程的状态由WAITING变为BLOCKED。</li>
+<li>从wait()方法返回的前提是获得了调用对象的锁。<br>如果一个线程执行了thread.join()语句，当前线程A等待thread线程终止之后才从thread.join()返回。  </li>
+</ol>
+<h5 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a>ThreadLocal</h5><p>我的理解是ThreadLocal提供了线程局部变量，每个线程可以通过set()和get()来对这个局部变量进行操作，但不会和其他线程的局部变量进行冲突，实现了线程的数据隔离。<br>作用：</p>
+<ul>
+<li>管理Connection，数据库的Connection，ThreadLocal能够实现当前线程的操作都是在同一个Connection，保证了事务。</li>
+<li>避免了一些参数传递。</li>
+<li>数据库管理、Session管理。<br>ThreadLocal原理总结：</li>
+<li>每个Thread维护着一个ThreadLocalMap的引用</li>
+<li>ThreadLocalMap是ThreadLocal的内部类，用Entry来进行存储</li>
+<li>调用ThreadLocal的set()方法时，实际上就是往ThreadLocalMap设置值，key是ThreadLocal对象，值是传递进来的对象</li>
+<li>调用ThreadLocal的get()方法时，实际上就是往ThreadLocalMap获取值，key是ThreadLocal对象</li>
+<li>ThreadLocal本身并不存储值，它只是作为一个key来让线程从ThreadLocalMap获取value。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/22/%E9%98%9F%E5%88%97%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/" rel="next" title="Java中队列常用用法">
+                <i class="fa fa-chevron-left"></i> Java中队列常用用法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/09/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF/%E5%BC%95%E7%94%A8%E7%9A%84%E5%88%86%E7%B1%BB/" rel="prev" title="Java的引用">
+                Java的引用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Alion</p>
+              <p class="site-description motion-element" itemprop="description">学生</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#并发编程的艺术"><span class="nav-number">1.</span> <span class="nav-text">并发编程的艺术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#并发执行的速度并不一定比串行快"><span class="nav-number">1.1.</span> <span class="nav-text">并发执行的速度并不一定比串行快</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#减少上下文切换的方式有无锁并发编程、CAS算法、使用最少线程和使用协程"><span class="nav-number">1.2.</span> <span class="nav-text">减少上下文切换的方式有无锁并发编程、CAS算法、使用最少线程和使用协程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#volatile"><span class="nav-number">1.3.</span> <span class="nav-text">volatile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#synchronized"><span class="nav-number">1.4.</span> <span class="nav-text">synchronized</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java并发编程艺术"><span class="nav-number">1.5.</span> <span class="nav-text">Java并发编程艺术</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Java线程状态"><span class="nav-number">1.5.0.1.</span> <span class="nav-text">Java线程状态</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#等待-通知机制"><span class="nav-number">1.5.0.2.</span> <span class="nav-text">等待&#x2F;通知机制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ThreadLocal"><span class="nav-number">1.5.0.3.</span> <span class="nav-text">ThreadLocal</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Alion</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
